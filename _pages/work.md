@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /work/
-title: Work Experience
+title: Work experience
 description: a little more about my work experience.
 nav: true
 nav_order: 2

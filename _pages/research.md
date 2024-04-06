@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /research/
-title: Research Experience
+title: Research experience
 description: a little more about my research experience.
 nav: true
 nav_order: 2
