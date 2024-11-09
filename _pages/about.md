@@ -1,14 +1,11 @@
 ---
 permalink: /
-title: "Jiwoo Noh"
+title: ""
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-Hello there! 👩🏻‍💻
-======
-
 <span id="typing-effect"></span>
 
 I am an undergraduate senior at Johns Hopkins University, studying Biomedical Engineering and Computer science. 
@@ -19,5 +16,3 @@ In [Trayanova Lab](https://www.trayanovalab.org/), I am working with a deep lear
 I was born and raised in Seoul, Korea until I was 12. I lived in Shanghai, China until high school graduation and moved to Baltimore, MD for college. My diverse background growing up allowed me to be bilingual in English and Korean with full proficiency in Mandarin and limited proficiency in French. 
 
 When I am not doing academic work, I love to cook diverse cuisines and bake simple desserts. I also enjoy hosting dinners for friends :)
-
-
