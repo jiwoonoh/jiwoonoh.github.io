@@ -6,6 +6,23 @@ redirect_from:
   - /about/
   - /about.html
 ---
+<!-- Add the element where the text will be typed -->
+<h1 id="typing-effect"></h1>
+
+<script>
+  const text = "Hello there! 👩🏻‍💻";
+  let index = 0;
+
+  function typeEffect() {
+    if (index < text.length) {
+      document.getElementById("typing-effect").innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 100); // Adjust typing speed here
+    }
+  }
+
+  window.onload = typeEffect; // Start typing when the page loads
+</script>
 
 I am an undergraduate senior at Johns Hopkins University, studying Biomedical Engineering and Computer science. 
 My focus area is computational medicine, and I currently work as an undergraduate research assistant advised by [Natalia Trayanova](https://www.bme.jhu.edu/people/faculty/natalia-trayanova/), closely working with [Minglang Yin](https://minglangyin.github.io/). My research interest lies in precision medicine, predictive modeling, multimodal AI, and deep phenotyping algorithms. I am very interested in building predictive models using multimodal data (e.g. EHR, imaging, waveform, etc.) for diagnosis and prognostics of various diseases for individual patients. 
