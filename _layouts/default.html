@@ -20,8 +20,7 @@ layout: compress
 
     <!-- Main Content Area -->
     <div class="container">
-      <h1>Hello there! 👩🏻‍💻</h1>
-      <div id="typing-effect"></div> <!-- Typing effect on a new line -->
+      <h1>I'm <span id="typing-effect"></span></h1> <!-- Typing effect added here -->
     </div>
 
     {{ content }}
@@ -42,9 +41,9 @@ layout: compress
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         var typed = new Typed('#typing-effect', {
-          strings: ["I'm Coding", "I'm Learning", "I'm Creating"],
-          typeSpeed: 40,
-          backSpeed: 40,
+          strings: ["a Researcher", "an Engineer", "a Data Scientist"],
+          typeSpeed: 50,
+          backSpeed: 50,
           loop: true
         });
       });
