@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Hello there! 👩🏻‍💻"
+title: "Jiwoo Noh"
 author_profile: true
 redirect_from: 
   - /about/
@@ -8,6 +8,9 @@ redirect_from:
 ---
 
 <span id="typing-effect"></span>
+
+Hello there! 👩🏻‍💻
+======
 
 I am an undergraduate senior at Johns Hopkins University, studying Biomedical Engineering and Computer science. 
 My focus area is computational medicine, and I currently work as an undergraduate research assistant advised by [Natalia Trayanova](https://www.bme.jhu.edu/people/faculty/natalia-trayanova/), closely working with [Minglang Yin](https://minglangyin.github.io/). My research interest lies in precision medicine, predictive modeling, multimodal AI, and deep phenotyping algorithms. I am very interested in building predictive models using multimodal data (e.g. EHR, imaging, waveform, etc.) for diagnosis and prognostics of various diseases for individual patients. 
