@@ -9,12 +9,19 @@ layout: compress
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    <!-- Load Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
+
+    <!-- Main Content Area -->
+    <div class="container">
+      <h1>Hello there! <span id="typing-effect"></span></h1> <!-- Typing effect added here -->
+    </div>
 
     {{ content }}
 
@@ -27,31 +34,20 @@ layout: compress
 
     {% include scripts.html %}
 
+    <!-- Load typed.js library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Initialize typing effect -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var typed = new Typed('#typing-effect', {
+          strings: ["I'm Coding", "I'm Learning", "I'm Creating"],
+          typeSpeed: 50,
+          backSpeed: 50,
+          loop: true
+        });
+      });
+    </script>
+
   </body>
 </html>
-
-
-<head>
-  <!-- Load Poppins font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <!-- Element to contain animated typing -->
-    <span id="element"></span>
-  </div>
-
-  <!-- Load typed.js library from the CDN -->
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-  <!-- Setup and start animation -->
-  <script>
-    var typed = new Typed('#element', {
-      strings: ["I'm Coding", "I'm Learning", "I'm Creating"],
-      typeSpeed: 50,
-      backSpeed: 50,
-      loop: true
-    });
-  </script>
-</body>
-
