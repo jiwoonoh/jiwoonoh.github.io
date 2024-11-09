@@ -6,7 +6,7 @@
    Typography
    ========================================================================== */
 
-$doc-font-size              : 16;
+$doc-font-size              : 14;
 
 /* paragraph indention */
 $paragraph-indent           : false; // true, false (default)
@@ -28,9 +28,9 @@ $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
-$global-font-family: 'Inter', sans-serif; // global font
-$header-font-family: 'Inter', sans-serif;
-$caption-font-family: 'Inter', sans-serif;
+$global-font-family: 'Poppins', sans-serif; // global font
+$header-font-family: 'Poppins', sans-serif;
+$caption-font-family: 'Poppins', sans-serif;
 
 /* type scale */
 $type-size-1: 2.2em;     // ~35px
@@ -49,7 +49,9 @@ $masthead-height            : 70px;
 $sidebar-screen-min-width   : 1024px;
 $sidebar-link-max-width     : 250px;
 
-
+* {
+   font-family: $global-font-family !important;
+}
 
 /*
    Colors
@@ -163,7 +165,3 @@ $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $global-transition          : all 0.2s ease-in-out;
-
-* {
-   font-family: $global-font-family !important;
-}
