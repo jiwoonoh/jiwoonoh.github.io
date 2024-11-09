@@ -6,6 +6,7 @@ redirect_from:
   - /about/
   - /about.html
 ---
+
 <span id="typing-effect"></span>
 
 I am an undergraduate senior at Johns Hopkins University, studying Biomedical Engineering and Computer science. 

@@ -50,7 +50,7 @@
   
   .container {
     width: 100%;
-    height: 0vh;
+    height: 30vh;
     background: #fff;
     color: #2b323c;
     display: flex;
@@ -69,9 +69,7 @@
   }
   
   #typing-effect::after {
-    content: "|"; /* Cursor */
     color: #0b5394; /* Cursor color matching text */
-    animation: blink 0.7s infinite; /* Blinking cursor animation */
   }
   
   @keyframes blink {
