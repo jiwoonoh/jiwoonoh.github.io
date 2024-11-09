@@ -8,6 +8,10 @@
 
 $doc-font-size              : 14;
 
+body, p, h1, h2, h3, h4, h5, h6, .sidebar, .caption {
+   font-family: $global-font-family;
+}
+
 /* paragraph indention */
 $paragraph-indent           : false; // true, false (default)
 $indent-var                 : 1.3em;
@@ -49,9 +53,9 @@ $masthead-height            : 70px;
 $sidebar-screen-min-width   : 1024px;
 $sidebar-link-max-width     : 250px;
 
-* {
-   font-family: $global-font-family !important;
-}
+// * {
+//    font-family: $global-font-family !important;
+// }
 
 /*
    Colors
