@@ -25,7 +25,7 @@ author:
   name             : "Jiwoo Noh"
   pronouns         : # example: "she/her"  
   bio              : "BME & CS @ Johns Hopkins"
-  location         : "Baltimore, MD"
+  location         : # location
   employer         : # School
   uri              : # URL
   email            : "jnoh10@jh.edu" 
