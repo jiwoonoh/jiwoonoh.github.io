@@ -18,11 +18,12 @@ When I am not doing academic work, I love to cook diverse cuisines and bake simp
 
 
 <div class="container">
-  <h1 id="typing-effect"></h1>
+  <!-- Element to contain animated typing -->
+  <span id="element"></span>
 </div>
 
 <!-- Link to typed.js library -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 <!-- Initialize typed.js -->
 <script>
