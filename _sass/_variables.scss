@@ -6,7 +6,7 @@
    Typography
    ========================================================================== */
 
-$doc-font-size              : 14;
+$doc-font-size              : 13;
 
 /* paragraph indention */
 $paragraph-indent           : false; // true, false (default)
@@ -165,24 +165,3 @@ $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $global-transition          : all 0.2s ease-in-out;
-
-
-// for title 
-#typing-effect {
-   font-size: 2em; /* Adjust size as needed */
-   font-family: $global-font-family; /* Use your global font */
-   border-right: 2px solid; /* Cursor effect */
-   white-space: nowrap;
-   overflow: hidden;
- }
- 
- @keyframes blink {
-   0% { border-color: transparent; }
-   50% { border-color: black; }
-   100% { border-color: transparent; }
- }
- 
- #typing-effect {
-   animation: blink 0.7s infinite; /* Blinking cursor effect */
- }
- 
