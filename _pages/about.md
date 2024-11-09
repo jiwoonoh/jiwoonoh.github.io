@@ -17,22 +17,3 @@ I was born and raised in Seoul, Korea until I was 12. I lived in Shanghai, China
 When I am not doing academic work, I love to cook diverse cuisines and bake simple desserts. I also enjoy hosting dinners for friends :)
 
 
-<div class="container">
-  <!-- Element to contain animated typing -->
-  <span id="element"></span>
-</div>
-
-<!-- Link to typed.js library -->
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-<!-- Initialize typed.js -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var typed = new Typed("#typing-effect", {
-      strings: ["I'm Coding", "I'm Learning", "I'm Creating"], // Add phrases to cycle through
-      typeSpeed: 50,
-      backSpeed: 50,
-      loop: true
-    });
-  });
-</script>

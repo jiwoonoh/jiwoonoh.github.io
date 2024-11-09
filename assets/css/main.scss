@@ -51,10 +51,17 @@
   .container {
     width: 100%;
     height: 100vh;
-    background: #fff; /* Background color */
-    color: #2b323c; /* Text color */
+    background: #fff;
+    color: #2b323c;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  
+  #element {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    color: #2b323c;
+  }
+  
   
