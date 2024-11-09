@@ -15,3 +15,23 @@ In [Trayanova Lab](https://www.trayanovalab.org/), I am working with a deep lear
 I was born and raised in Seoul, Korea until I was 12. I lived in Shanghai, China until high school graduation and moved to Baltimore, MD for college. My diverse background growing up allowed me to be bilingual in English and Korean with full proficiency in Mandarin and limited proficiency in French. 
 
 When I am not doing academic work, I love to cook diverse cuisines and bake simple desserts. I also enjoy hosting dinners for friends :)
+
+
+<div class="container">
+  <h1 id="typing-effect"></h1>
+</div>
+
+<!-- Link to typed.js library -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- Initialize typed.js -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var typed = new Typed("#typing-effect", {
+      strings: ["I'm Coding", "I'm Learning", "I'm Creating"], // Add phrases to cycle through
+      typeSpeed: 50,
+      backSpeed: 50,
+      loop: true
+    });
+  });
+</script>
