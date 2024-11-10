@@ -87,13 +87,3 @@
   .author__bio {
     font-family: 'EB Garamond', serif !important;
   }
-
-  /* Center-align the site title */
-  .site-title {
-    text-align: center;
-    width: 100%; /* Make sure it spans the full width of the container */
-    display: flex;
-    justify-content: center; /* Center-aligns within the flex container */
-    margin: 0 auto; /* Centers the title in the viewport */
-  }
-  
