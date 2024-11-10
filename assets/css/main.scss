@@ -66,6 +66,7 @@
   
   #typing-effect {
     color: #0b5394; /* Replace with your desired color code */
+    font-weight: bold;
   }
   
   h1 {
@@ -78,7 +79,12 @@
     margin-top: auto; /* Pushes the footer to the bottom */
   }
 
-  .author__content, .author__urls-wrapper, .author__avatar {
-    font-family: 'EB Garamond', serif;
+  /* Ensure the author name and bio are bold */
+  .author__name {
+    font-family: 'EB Garamond', serif !important; 
   }
- 
+  
+  .author__bio {
+    font-family: 'EB Garamond', serif !important;
+  }
+  
