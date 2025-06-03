@@ -35,5 +35,12 @@ redirect_from:
 
   <p> I recently completed my BS in Biomedical Engineering and Computer Science at Johns Hopkins University. </p>
 
+<<<<<<< HEAD
   <p>I was born and raised in Seoul, Korea until I was 12, then lived in Shanghai, China until high school graduation, and moved to Baltimore, MD for college. My diverse background has enabled me to become bilingual in English and Korean, with full proficiency in Mandarin and limited proficiency in French. Please feel free to reach out to me via email :) </p>
 </div>
+=======
+  <p>I was born and raised in Seoul, Korea until I was 12, then lived in Shanghai, China until high school graduation, and moved to Baltimore, MD for college. My diverse background has enabled me to become bilingual in English and Korean, with full proficiency in Mandarin and limited proficiency in French.</p>
+
+  <p>When I’m not doing academic work, I love cooking diverse cuisines and baking simple desserts. I also love making new playlists on Spotify. Please feel free to reach out to me via email! </p>
+</div>
+>>>>>>> 62d42aa70b986ba3afcf43cb17442026310d5d4b

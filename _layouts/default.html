@@ -11,8 +11,6 @@ layout: compress
     {% include head/custom.html %}
     <!-- Load Garamond font -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-
-
   </head>
 
   <body>
@@ -22,7 +20,7 @@ layout: compress
 
     <!-- Main Content Area -->
     <div class="container">
-      <h1>Hello 👩🏻‍💻, I'm <span id="typing-effect"></span></h1> <!-- Typing effect added here -->
+      <h1></h1>
     </div>
 
     {{ content }}
@@ -35,21 +33,6 @@ layout: compress
     </div>
 
     {% include scripts.html %}
-
-    <!-- Load typed.js library from the CDN -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
-    <!-- Initialize typing effect -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var typed = new Typed('#typing-effect', {
-          strings: ["a Student", "a Researcher", "an Engineer", "a Data Scientist"],
-          typeSpeed: 50,
-          backSpeed: 50,
-          loop: true
-        });
-      });
-    </script>
 
   </body>
 </html>
