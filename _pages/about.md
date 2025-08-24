@@ -30,8 +30,8 @@ redirect_from:
 
 <div>
   <p>Welcome!</p>
-  
-  <p>I am an incoming PhD student in the <a href="https://www.bme.jhu.edu/" target="_blank">Biomedical Engineering Department</a> at Johns Hopkins University, where I am fortunate to be advised by <a href="https://www.bme.jhu.edu/people/faculty/natalia-trayanova/" target="_blank">Natalia Trayanova</a> and affiliated with <a href="https://ai.jhu.edu/" target="_blank">Data Science and AI (DSAI)</a>. My research focuses on building predictive AI using multimodal clinical data for diagnosis and prognostics of cardiovascular diseases, as well as investigating downstream machine learning methodologies to ensure the models' reliability.</p>
+
+  <p>I am a first-year PhD student in the <a href="https://www.bme.jhu.edu/" target="_blank">Biomedical Engineering Department</a> at Johns Hopkins University, where I am fortunate to be advised by <a href="https://www.bme.jhu.edu/people/faculty/natalia-trayanova/" target="_blank">Natalia Trayanova</a> and affiliated with <a href="https://ai.jhu.edu/" target="_blank">Data Science and AI (DSAI)</a>. My research focuses on building predictive AI using multimodal clinical data for diagnosis and prognostics of cardiovascular diseases, as well as investigating downstream machine learning methodologies to ensure the models' reliability.</p>
 
   <p> I recently completed my BS in Biomedical Engineering and Computer Science at Johns Hopkins University. </p>
   
