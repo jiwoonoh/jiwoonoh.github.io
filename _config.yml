@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Jiwoo Noh"
+title                    : "home"
 title_separator          : "-"
-name                     : &name "Jiwoo Noh"
+name                     : &name "home"
 description              : &description "personal description"
 url                      : https://jiwoonoh.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile.jpg"
   name             : "Jiwoo Noh"
   pronouns         : # example: "she/her"  
-  bio              : "PhD Candidate @ Johns Hopkins"
+  bio              : "PhD Student @ Johns Hopkins"
   location         : # location
   employer         : # School
   uri              : # URL

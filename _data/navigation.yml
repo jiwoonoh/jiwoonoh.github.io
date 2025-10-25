@@ -26,5 +26,5 @@ main:
   # - title: "Guide"
   #   url: /markdown/
 
-    - title: "Blog"
+    - title: "blog"
       url: /blog/

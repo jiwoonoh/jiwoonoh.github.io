@@ -6,9 +6,8 @@
    Typography
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
-$doc-font-size              : 13;
+$doc-font-size              : 12;
 
 /* paragraph indention */
 $paragraph-indent           : false; // true, false (default)
@@ -30,9 +29,9 @@ $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
-$global-font-family: 'JetBrains Mono', $monospace; // global font
-$header-font-family: 'JetBrains Mono', $monospace;
-$caption-font-family: 'JetBrains Mono', $monospace;
+$global-font-family: 'EB Garamond', serif; // global font
+$header-font-family: 'EB Garamond', serif;
+$caption-font-family: 'EB Garamond', serif;
 
 /* type scale */
 $type-size-1: 2.2em;    
@@ -167,3 +166,12 @@ $box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
 $navicon-width              : 28px;
 $navicon-height             : 4px;
 $global-transition          : all 0.2s ease-in-out;
+
+/* --- Avatar Shape Override --- */
+.author__avatar img {
+   border-radius: 0;
+ }
+
+ .author__links-label {
+   text-transform: lowercase;
+ }
