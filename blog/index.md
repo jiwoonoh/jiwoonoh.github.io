@@ -25,6 +25,8 @@ permalink: /blog/
 </style>
 
 <div>
+  <p></p>
+
   <p> I read stuff and write about them here. <p>
 
 </div>
