@@ -175,3 +175,14 @@ $global-transition          : all 0.2s ease-in-out;
  .author__links-label {
    text-transform: lowercase;
  }
+
+ /* --- MathJax Font Override --- */
+/* This targets text inside MathJax equations (like \text{...}) */
+mjx-container .mjx-mtext {
+   font-family: $global-font-family !important;
+ }
+ 
+ /* Fallback for older MathJax v2, just in case */
+ .MathJax_Display .mtext {
+    font-family: $global-font-family !important;
+ }
