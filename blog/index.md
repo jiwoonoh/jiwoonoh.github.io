@@ -1,6 +1,4 @@
-title: "blog" permalink: /blog/
-
-<style>
+t<style>
 /* Set all text color to black */
 html, body {
 margin: 0;
