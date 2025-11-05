@@ -34,7 +34,6 @@ layout: single
     padding-bottom: 2.5rem;
   }
   
-  /* GOAL 3: Thumbnail styles */
   .post-thumbnail {
     width: 150px;  /* Fixed width for thumbnail */
     height: 100px; /* Fixed height for thumbnail */
@@ -48,7 +47,6 @@ layout: single
     flex: 1; /* Text content takes remaining space */
   }
   
-  /* GOAL 1: Smaller title */
   .post-list-content h3 {
     margin-top: 0;
     margin-bottom: 0.25rem;
