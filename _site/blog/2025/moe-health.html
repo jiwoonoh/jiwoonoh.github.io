@@ -1,0 +1,480 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+<!-- Add the Poppins font link here -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Mixture-of-Experts (MoE) for Medical Applications - home</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="home">
+<meta property="og:title" content="Mixture-of-Experts (MoE) for Medical Applications">
+
+
+  <link rel="canonical" href="https://jiwoonoh.github.io/blog/2025/moe-health">
+  <meta property="og:url" content="https://jiwoonoh.github.io/blog/2025/moe-health">
+
+
+
+  <meta property="og:description" name="description" content="">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2025-10-25T00:00:00+00:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "home",
+      "url" : "https://jiwoonoh.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://jiwoonoh.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="home Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://jiwoonoh.github.io/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="https://jiwoonoh.github.io/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="https://jiwoonoh.github.io/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="https://jiwoonoh.github.io/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="https://jiwoonoh.github.io/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="https://jiwoonoh.github.io/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="https://jiwoonoh.github.io/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="https://jiwoonoh.github.io/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="https://jiwoonoh.github.io/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="https://jiwoonoh.github.io/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="https://jiwoonoh.github.io/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="https://jiwoonoh.github.io/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="https://jiwoonoh.github.io/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="https://jiwoonoh.github.io/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="https://jiwoonoh.github.io/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="https://jiwoonoh.github.io/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="https://jiwoonoh.github.io/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="https://jiwoonoh.github.io/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://jiwoonoh.github.io/assets/css/academicons.css"/>
+
+
+<!-- Support for MatJax -->
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- end custom head snippets -->
+
+    <!-- Load Garamond font -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://jiwoonoh.github.io/">home</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://jiwoonoh.github.io/blog/">blog</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <!-- Main Content Area -->
+    <div class="container">
+      <h1></h1>
+    </div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Mixture-of-Experts (MoE) for Medical Applications">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="October 25, 2025">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Mixture-of-Experts (MoE) for Medical Applications
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  8 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-10-25T00:00:00+00:00">October 25, 2025</time></p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <!-- Add this style block to hide the extra elements -->
+
+<style>
+  .page__related,
+  .page__navigation,
+  p.page__meta,
+  .page__share {  
+    display: none !important;
+  }
+</style>
+
+<p>Throwback to a month ago, I did my first Machine Learning subgroup presentation, where I explained about the Mixture-of-Experts (MoE) models and their applications in medicine.</p>
+
+<h3 id="what-is-a-moe">What is a MoE?</h3>
+<p>This blog post will explain MoE in context of Transformers. MoE is a machine learning architecture that combines multiple specialized “expert” models with a “gating network” to dynamically route inputs to the most relevant experts <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. It was first introduced in ICLR 2017 by a team in Google Brain <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. In a transformer, MoE has two main elements:</p>
+<ol>
+  <li>They have sparse MoE layers instead of dense feed-forward network (FFN) layers,</li>
+  <li>Router network determines which token is sent to which expert.</li>
+</ol>
+
+<p>See image below to understand the difference between regular versus MoE transformers <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
+
+<p><img src="/images/MOE-1.png" width="800" height="800" /></p>
+
+<h3 id="how-does-moe-work">How does MoE work?</h3>
+<p>MoE has two main components: router network and experts. Below steps outline how these components interact to</p>
+<ol>
+  <li>Router network scores the input token against each expert and applies a softmax to produce a probability for every expert: \(h_{soft}(x)_{i} = \text{softmax}(x^T W_i)\)</li>
+  <li>Top-K experts (here, k=1) are activated.</li>
+  <li>Expert’s FFN processes the token and produces an output.</li>
+  <li>Router’s probability for that expert (e.g., 0.45) is used to weigh the expert’s output before passing it onward.</li>
+</ol>
+
+<p><img src="/images/MOE-2.png" width="400" height="400" /></p>
+
+<h3 id="why-moes-are-useful-or-not">Why MoEs are useful, or not</h3>
+<p>These MoE Transformers are great at dynamic specialization, as each expert focuses on particular patterns or inputs. We have <strong>dynamic gating</strong>, which computes each token and produces probability vector that determines how much “say” each expert gets in the final output. Throughout training, MoE models add an <strong>auxillary loss function</strong> to the regular model loss, which enforces 1) load balancing (penalizes the router if it disproportionately favors a few experts over a batch of tokens) and 2) sparsity (adds an entropy penalty to encourage the router to produce a “spiky” probability distribution). They also have improved model capacity as they are able to process high number parameters without comparable costs. Unlike normal transformers where each feed-forward network (FFN) computes all parameters, MoE router selects the \(K\) experts with the highest probabilities (the Top-K) and only those \(K\) experts are computed. The other \(N-K\) experts are not activated and consume zero computational power.</p>
+
+<p><img src="/images/MOE-3.png" width="400" height="400" /></p>
+
+<p>However, MoEs still have a few downsides, with one of them being that they may suffer from irregular and missing data. Let’s consider an example where the input data question is: “What is 1+1?”. Now, let’s assume we are missing the numerical part of the data, and all we are left is “What is ?”. Then, router still computes scores for all experts with zero-filled embeddings for numbers. This can lead to the router incorrectly sending the incomplete math equation to “verb” expert (for example) instead of “number” expert (again, for example). If many incomplete math questions (input data) arrive, then the “word” expert would get overloaded while “number” experts get underused, meaning that the final answer will be computed by the wrong experts. Overall, this can lead to lower predication accuracy.</p>
+
+<p>There have been many variations of MoE to combat its limitations towards missing data. One prominent example is FuseMoE, published in NeurIPS 2024 by Han et al. at Johns Hopkins <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>. FuseMoE argues that it can deal with “FlexiModal Data,” where “Flexi” suggests flexibility with any combination of modalities even with arbitrary missingness or irregularity.</p>
+
+<h3 id="fusemoe-router-structure">FuseMoE: Router Structure</h3>
+<p><img src="/images/MOE-4.png" width="600" height="600" /></p>
+
+<p>FuseMoE follows closely to the original MoE framework. In the image above, (a) utilizes joint experts and router. This is the structure of a typical MoE, which utilizes concatenated embedding of all modalities. It combines all theinput to selected experts as processed by the router. (c) employs disjoint experts, where each modality has separate router and dedicated experts. While disjoint experts solve the main issue of the regular MoE in that there is no misrouting, this method also does not allow for cross-modal feature learning, which can stagger the learning process for the model. (b)’s per-modality router structure explains FuseMoE’s mechanism. In FuseMoE, each modality embedding is independently assigned to a shared pool of experts. This is better than (a) since it avoids blind misrouting – each router only sees the embeddings for its modality, so it never confuses token as another modality. Each modality’s router in (a) also tailors its routing weights to the statistics of that modality’s embeddings. At the same time, (b) is also better than (c) since it preserves cross-modal sharing, which allows for shared represnetations and transfer knowledge. In essence, FuseMoE modifies its structure so that routers are specialized but experts remain shared.</p>
+
+<h3 id="fusemoe-laplace-gating-function">FuseMoE: Laplace Gating Function</h3>
+<p>FuseMoE uses Laplace gating function to pick experts based on how “close” each expert is to the input. Specifically, their routing function is: \(h_\ell(x)_i = -\|x - W_i\|_2^2\), with gate probabilities of \(G_\ell(x)_i = \frac{\exp(h_\ell(x)_i)}{\sum_{j=1}^S \exp(h_\ell(x)_j)}\).
+This gating function produces smoother gradients since the gradient is \(2(x-w)\), meaning that it is always proportional to the difference. It can also handle different scales, as the model adjusts to extreme modality values by measuring absolute values.</p>
+
+<h3 id="fusemoe-entropy-regularization-loss">FuseMoE: Entropy Regularization Loss</h3>
+<p>FuseMoE also utilizes entropy regularization loss, which is \(\mathcal{E}(x) = \frac{1}{M} \sum_{j=1}^M \mathcal{H}(\hat{p}_{m_j}(E)) - \mathcal{H}\left(\frac{1}{M} \sum_{j=1}^M \hat{p}_{m_j}(E)\right)\), where:</p>
+<ul>
+  <li>\(x\): input token’s representation,</li>
+  <li>\(M\): the number of different modality conditions</li>
+  <li>\(\hat{p}_{m_j}(E)\): vector of routing weights that router $j$ assigns to each expert $E$</li>
+  <li>\(\mathcal{H}\) : entropy function</li>
+</ul>
+
+<p>This ensures per-modality specialization and cross-modal consensus. The first term is the average entropy of each modality’s router output. If the value of first term is high, each modality’s router spreads braodly over experts. The second term is the entropy of the mixture distribution after averaging M number of modality-conditioned router outputs. If the second term is high, combined distribution is flat.</p>
+
+<h3 id="fusemoe-application-to-mimic-iv">FuseMoE: Application to MIMIC-IV</h3>
+<p>The team carried out an experiment to perform 48-hour in-hospital mortality prediction (48-IHM), length-of-stay prediction (LOS), and 25-type phenotype classification (25-PHE) using MIMIC-IV dataset.</p>
+
+<p><img src="/images/MOE-5.png" width="600" height="600" /></p>
+
+<p>From Table 4 (below), we can see that the best results, which are highlighted in bold font, largely come from FuSeMoE-based methods with various gating function.</p>
+
+<p><img src="/images/MOE-6.png" width="600" height="600" /></p>
+
+<p>The team also compares Fuse-MoE’s efficacy with increasing number of modalities. As the model is provided with ECG, in addition to Vital, Notes, and CXR, we can see that FuseMoE with Laplace gating function performs better than other models.</p>
+
+<h3 id="fusemoe-limitations-and-conclusions">FuseMoE: Limitations and Conclusions</h3>
+<p>While FuseMoE allows for per-modality specialization and cross-modal conesnsus, it has some limitations as well. First, FuseMoE’s modality combination is predefined. This means that adpating to new modalities requires architectural changes and retraining. Moreover, while per-modality encoders are pretrained, the MoE fusion layer still needs substantial in-domain data to fine-tune effectively. Therefore, small clinical cohorts risk under-trained experts and overfitting.</p>
+
+<p>Regardless, FuseMoE introduces a flexible, scalable Mixture-of-Experts layer for transformers that natively handles any combination of modalities. Specifically, per-modality routers over a shared expert pool modality learns specialized routes without losing cross-modal transfer. Laplace gating function yields smoother, bounded gradients and faster, uniform convergence guarantees for both router and expert parameters. Lastly, entropy regularizer encourages each modality’s router to explore multiple experts while driving all routers toward consensus on a small core of experts.</p>
+
+<h3 id="wrapping-up">Wrapping up…</h3>
+<p>I came across FuseMoE as I was reading methodology papers that present multimodal AI models. FuseMoE could be a very useful model when trying to build a risk prediction model for cardiovascular disease given multimodal clinical data, where missing data is especially common. However, it might be challenging to adopt FuseMoE in real clinical settings since it will be rare for a dataset to be as large as MIMIC-IV.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>IBM. (n.d.). <em>What is a mixture of experts (MoE)?</em> IBM Think. Retrieved October 25, 2025, from https://www.ibm.com/think/topics/mixture-of-experts <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Shazeer, N., Mirhoseini, A., Maziarz, K., Davis, A., Le, Q., Hinton, G., &amp; Dean, J. (2017, February 6). Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer. International Conference on Learning Representations (ICLR). Retrieved October 25, 2025, from https://openreview.net/forum?id=B1ckMDqlg <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Chawla, A. (2025, February 27). Transformer vs. Mixture of Experts in LLMs. Daily Dose of Data Science. Retrieved October 25, 2025, from https://www.dailydoseofds.com/p/transformer-vs-mixture-of-experts-in-llms/ <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Han, X., Nguyen, H., Harris, C., Ho, N., &amp; Saria, S. (2024). FuseMoE: Mixture-of-Experts Transformers for Fleximodal Fusion. Advances in Neural Information Processing Systems 37 (NeurIPS 2024). Retrieved October 25, 2025, from https://proceedings.neurips.cc/paper_files/paper/2024/hash/7d62a85ebfed2f680eb5544beae93191-Abstract-Conference.html <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=https://jiwoonoh.github.io/blog/2025/moe-health" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://jiwoonoh.github.io/blog/2025/moe-health" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://jiwoonoh.github.io/blog/2025/moe-health" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "https://jiwoonoh.github.io/images//images/ICYM2I-1.png"
+          
+          alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://jiwoonoh.github.io/blog/2026/icym2i-missingness" rel="permalink">ICYM²I: Multimodal Informativeness under Missingness
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  9 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-07-14T00:00:00+00:00">July 14, 2026</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><!-- Add this style block to hide the extra elements -->
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "https://jiwoonoh.github.io/images//images/DL-Arrhythmia.png"
+          
+          alt="">
+      </div>
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://jiwoonoh.github.io/blog/2025/ml-arrhythmia" rel="permalink">Machine Learning in Arrhythmia
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  3 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2025-12-06T00:00:00+00:00">December 06, 2025</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><!-- Add this style block to hide the extra elements -->
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<!-- <a href="/sitemap/">Sitemap</a> -->
+<!-- end custom footer snippets -->
+
+        <div class="page__footer-copyright">
+  &copy; 2026 Jiwoo Noh, Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>.
+</div>
+      </footer>
+    </div>
+
+    <script src="https://jiwoonoh.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

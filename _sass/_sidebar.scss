@@ -258,3 +258,41 @@
     }
   }
 }
+
+// Show the homepage contact links as a compact horizontal icon row.
+.author__urls--icon-only {
+  @include breakpoint($large) {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+    width: max-content;
+
+    li {
+      display: inline-flex;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 2px;
+      font-size: 0;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    i {
+      width: auto;
+      font-size: 1.15rem;
+    }
+
+    .icon-pad-right {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}
