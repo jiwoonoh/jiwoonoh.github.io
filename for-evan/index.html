@@ -25,50 +25,68 @@
     </button>
 
     <main>
-      <section class="scene intro active" data-scene="0">
-        <div class="intro-content">
-          <div class="bubble">Hey Evan, I’ve got something to tell you.</div>
-          <button class="next-button" data-next>Click to start</button>
+      <section class="scene image-scene active" data-scene="0">
+        <img class="background" src="assets/scene-01-mystery.webp" alt="A mysterious musician waiting backstage" />
+        <div class="message">
+          <div class="bubble">Can you tell who I am?</div>
+          <button class="next-button" data-next>Take a guess</button>
         </div>
-        <img src="assets/zach-hello.png" alt="Zach Bryan waving with a guitar" />
       </section>
 
       <section class="scene image-scene" data-scene="1" aria-hidden="true">
-        <img class="background" src="assets/zach-roadtrip.png" alt="Zach Bryan leaning from a vintage pickup" />
+        <img class="background" src="assets/scene-02-identity.webp" alt="Zach Bryan smiling with his guitar" />
+        <div class="message">
+          <div class="bubble">Yes, I’m Zach Bryan!</div>
+          <button class="next-button" data-next>Continue</button>
+        </div>
+      </section>
+
+      <section class="scene image-scene" data-scene="2" aria-hidden="true">
+        <img class="background" src="assets/scene-03-message.webp" alt="Zach Bryan sitting on a farmhouse porch" />
+        <div class="message">
+          <div class="bubble">Hey Evan, I’ve got something to tell you.</div>
+          <button class="next-button" data-next>Continue</button>
+        </div>
+      </section>
+
+      <section class="scene image-scene" data-scene="3" aria-hidden="true">
+        <img class="background" src="assets/scene-04-baltimore.webp" alt="Zach Bryan leaning out of a vintage pickup" />
         <div class="message">
           <div class="bubble">I heard you are coming down to Baltimore soon!</div>
           <button class="next-button" data-next>Continue</button>
         </div>
       </section>
 
-      <section class="scene image-scene" data-scene="2" aria-hidden="true">
-        <img class="background" src="assets/zach-roadtrip.png" alt="A quiet country road at sunset" />
+      <section class="scene image-scene" data-scene="4" aria-hidden="true">
+        <img class="background" src="assets/scene-05-detour.webp" alt="Zach Bryan checking a road map beside a country road" />
         <div class="message">
           <div class="bubble">Before you get there... how about one little detour?</div>
           <button class="next-button" data-next>Go on...</button>
         </div>
       </section>
 
-      <section class="scene image-scene" data-scene="3" aria-hidden="true">
-        <img class="background" src="assets/zach-horse.png" alt="Zach Bryan riding a horse" />
+      <section class="scene image-scene" data-scene="5" aria-hidden="true">
+        <img class="background" src="assets/scene-06-delaware.webp" alt="Zach Bryan riding a horse through a Delaware meadow" />
         <div class="message">
           <div class="bubble">Do you want to stop by at Delaware?</div>
           <button class="next-button" data-next>Continue</button>
         </div>
       </section>
 
-      <section class="scene suspense" data-scene="4" aria-hidden="true">
-        <div>
-          <p>Because...</p>
+      <section class="scene image-scene" data-scene="6" aria-hidden="true">
+        <img class="background" src="assets/scene-07-because.webp" alt="Zach Bryan waiting at the edge of a dark stage" />
+        <div class="message">
+          <div class="bubble">Because...</div>
           <button class="next-button" data-next>One more click</button>
         </div>
       </section>
 
-      <section class="scene reveal" data-scene="5" aria-hidden="true">
+      <section class="scene image-scene reveal" data-scene="7" aria-hidden="true">
+        <img class="background" src="assets/scene-08-reveal.webp" alt="Zach Bryan performing under warm concert lights" />
         <div class="reveal-content">
           <h2>Thanks to your amazing girlfriend Jiwoo, you can come see me sing!!!</h2>
           <p>September 19, 2026 · Dover, Delaware</p>
-          <img src="assets/tickets.jpg" alt="Two tickets to see Zach Bryan on September 19, 2026" />
+          <img class="ticket-image" src="assets/tickets.jpg" alt="Two tickets to see Zach Bryan on September 19, 2026" />
           <div class="reveal-buttons">
             <button class="next-button" id="celebrateButton">Best girlfriend ever</button>
             <button class="simple-button" data-go="0">Start over</button>
