@@ -50,7 +50,7 @@ function showScene(nextIndex) {
   scenes[nextIndex].classList.add("active");
   scenes[nextIndex].setAttribute("aria-hidden", "false");
   currentScene = nextIndex;
-  if (currentScene === 3) window.setTimeout(celebrate, 350);
+  if (currentScene === scenes.length - 1) window.setTimeout(celebrate, 350);
 }
 
 document.querySelectorAll("[data-next]").forEach((button) => {
