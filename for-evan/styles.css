@@ -11,7 +11,7 @@ body {
   overflow: hidden;
   color: var(--black);
   background: var(--black);
-  font-family: "Rye", Georgia, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button { font: inherit; }
@@ -36,7 +36,8 @@ button { font: inherit; }
   border: 1px solid #777;
   border-radius: 999px;
   cursor: pointer;
-  font-size: 17px;
+  font-family: "Rye", Georgia, serif;
+  font-size: 18px;
   transition: color .2s ease, background .2s ease, border-color .2s ease;
 }
 
@@ -86,17 +87,10 @@ main, .scene { width: 100%; height: 100%; }
   align-items: center;
   padding: 8vh 6vw;
   color: #fff;
-  background: #151311;
+  background: #303030;
 }
 
 .intro-content { z-index: 2; width: min(90vw, 650px); text-align: center; }
-
-h1 {
-  margin: 0 0 30px;
-  font-size: clamp(68px, 9vw, 140px);
-  line-height: .92;
-  letter-spacing: -.07em;
-}
 
 .intro img {
   position: absolute;
@@ -106,32 +100,35 @@ h1 {
   height: 92vh;
   object-fit: contain;
   object-position: center bottom;
-  opacity: .42;
+  opacity: .48;
   transform: translateX(50%);
+  filter: saturate(.72) contrast(.94);
 }
 
 .bubble {
   margin-inline: auto;
   max-width: 640px;
-  padding: 28px 31px;
+  padding: 25px 29px;
   color: var(--black);
-  background: var(--white);
-  border-radius: 22px;
-  font-size: clamp(27px, 3.25vw, 52px);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -.035em;
-  box-shadow: 0 12px 35px rgba(0,0,0,.15);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 16px;
+  font-size: clamp(22px, 2.25vw, 34px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.02em;
+  box-shadow: 0 12px 35px rgba(0,0,0,.12);
+  backdrop-filter: blur(10px);
 }
 
-.intro .bubble { margin-bottom: 24px; font-size: clamp(22px, 2.4vw, 36px); }
+.intro .bubble { margin-bottom: 20px; font-size: clamp(19px, 1.8vw, 27px); }
 
 .next-button, .simple-button {
-  margin-top: 24px;
-  padding: 15px 23px;
+  margin-top: 20px;
+  padding: 13px 21px;
   border-radius: 999px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .next-button { color: #fff; background: var(--accent); border: 1px solid var(--accent); }
@@ -143,17 +140,18 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(.74) contrast(.92);
 }
 
 .message { position: absolute; z-index: 2; top: 50%; left: 50%; width: min(88vw, 680px); text-align: center; transform: translate(-50%, -50%); }
 .image-scene::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
-.image-scene::after { background: rgba(24,19,14,.26); }
+.image-scene::after { background: rgba(18,18,18,.22); }
 
 .reveal {
   overflow-y: auto;
   padding: 8vh 7vw;
   color: #fff;
-  background: #111a36;
+  background: #303030;
 }
 
 .reveal-content {
@@ -170,12 +168,14 @@ h1 {
 
 .reveal h2 {
   margin: 0;
-  font-size: clamp(38px, 4.6vw, 74px);
-  line-height: 1.02;
-  letter-spacing: -.055em;
+  max-width: 720px;
+  font-size: clamp(29px, 3.2vw, 48px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.035em;
 }
 
-.reveal p { margin: 0; color: #d6d9e3; font-size: 15px; }
+.reveal p { margin: 0; color: #d6d6d6; font-size: 13px; }
 
 .reveal img {
   display: block;
@@ -195,15 +195,14 @@ h1 {
 @media (max-width: 760px) {
   .intro { display: grid; padding: 90px 22px 30px; }
   .intro-content { position: relative; z-index: 3; }
-  h1 { font-size: 20vw; }
   .intro .bubble { max-width: 100%; }
   .intro img { right: 50%; bottom: -8%; width: 120%; height: 75%; opacity: .35; transform: translateX(50%); }
   .message { top: 50%; right: auto !important; bottom: auto; left: 50% !important; width: calc(100% - 40px); transform: translate(-50%, -50%); }
-  .message .bubble { padding: 22px; font-size: clamp(27px, 8.3vw, 42px); }
+  .message .bubble { padding: 22px; font-size: clamp(21px, 6vw, 30px); }
   .image-scene::after { background: rgba(24,19,14,.3); }
   .reveal { padding: 92px 20px 50px; }
   .reveal-content { min-height: 0; align-items: center; gap: 24px; }
-  .reveal h2 { font-size: 11vw; }
+  .reveal h2 { font-size: 8.5vw; }
   .reveal p { margin-top: 18px; }
   .reveal-buttons { margin-top: 0; }
   .music-button { top: 15px; right: 15px; }
