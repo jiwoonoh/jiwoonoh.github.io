@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17140f" />
+    <meta name="description" content="A little country surprise for Evan." />
+    <meta property="og:title" content="A little something for Evan" />
+    <meta property="og:description" content="Put your sound on, then click to start." />
+    <meta property="og:type" content="website" />
+    <title>Hey Evan — a little surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Rye&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="start-gate" id="startGate">
+      <div class="gate-inner">
+        <span class="gate-star" aria-hidden="true">✦</span>
+        <p class="gate-kicker">A LITTLE SOMETHING FOR YOU</p>
+        <button class="start-button" id="startButton">
+          <span>Click to start</span>
+          <span class="start-arrow">→</span>
+        </button>
+        <p class="sound-note"><span aria-hidden="true">♫</span> Best with your sound on</p>
+      </div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#" data-go="0" aria-label="Back to the beginning">
+        <span class="brand-mark">✦</span>
+        FOR EVAN · FROM JIWOO
+      </a>
+      <div class="progress" aria-label="Story progress">
+        <span class="progress-label">01 / 04</span>
+        <div class="progress-track"><span class="progress-fill"></span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="scene scene-intro is-active" data-scene="0" aria-label="Hello Evan">
+        <div class="intro-copy">
+          <p class="eyebrow">A VERY IMPORTANT MESSAGE FOR</p>
+          <h1>Hi, <em>Evan!</em></h1>
+          <div class="speech speech-intro">
+            <span class="speaker">ZACH SAYS</span>
+            <p>“Howdy, Evan — got a minute?”</p>
+          </div>
+          <button class="btn btn-light" data-next>
+            <span>Click to proceed</span><span class="arrow">↗</span>
+          </button>
+        </div>
+        <div class="intro-portrait">
+          <span class="sun-disc" aria-hidden="true"></span>
+          <img src="assets/zach-hello.png" alt="Illustration of Zach Bryan waving with a guitar" />
+          <div class="doodle doodle-one" aria-hidden="true">♥</div>
+          <div class="doodle doodle-two" aria-hidden="true">✦</div>
+        </div>
+        <p class="scroll-note">ONE LITTLE ROAD TRIP · ONE BIG SURPRISE</p>
+      </section>
+
+      <section class="scene scene-roadtrip" data-scene="1" aria-label="The Baltimore clue" aria-hidden="true">
+        <img class="scene-bg" src="assets/zach-roadtrip.png" alt="Illustration of Zach Bryan leaning from a vintage pickup on a country road" />
+        <div class="road-wash" aria-hidden="true"></div>
+        <div class="scene-card road-card">
+          <p class="kicker"><span>01</span> WORD ON THE ROAD IS...</p>
+          <div class="speech speech-large">
+            <span class="speaker">ZACH SAYS</span>
+            <h2>I heard you are coming down to <em>Baltimore</em> to celebrate Yom Kippur!</h2>
+          </div>
+          <button class="btn btn-dark" data-next>
+            <span>That’s right...</span><span class="arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="scene scene-horse" data-scene="2" aria-label="The Delaware clue" aria-hidden="true">
+        <img class="scene-bg" src="assets/zach-horse.png" alt="Illustration of Zach Bryan riding a horse through a meadow at sunset" />
+        <div class="horse-vignette" aria-hidden="true"></div>
+        <div class="scene-card horse-card">
+          <p class="kicker"><span>02</span> JUST A SMALL DETOUR</p>
+          <div class="speech speech-large speech-peach">
+            <span class="speaker">ZACH SAYS</span>
+            <h2>Do you want to stop by at <em>Delaware?</em></h2>
+          </div>
+          <p class="distance-note">Dover is only about 2 hours from Baltimore <span>♡</span></p>
+          <button class="btn btn-rust" data-next>
+            <span>Why, what’s there?</span><span class="arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="scene scene-reveal" data-scene="3" aria-label="Concert ticket reveal" aria-hidden="true">
+        <div class="reveal-stars" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>
+        <div class="reveal-grid">
+          <div class="reveal-copy">
+            <p class="kicker light"><span>03</span> THE BIG REVEAL</p>
+            <div class="speech speech-final">
+              <span class="speaker">ZACH SAYS</span>
+              <h2>Thanks to your amazing girlfriend, you can come see me sing!!!</h2>
+            </div>
+            <div class="show-meta" aria-label="Concert details">
+              <div><span>WHEN</span><strong>SEP 19, 2026</strong></div>
+              <div><span>WHERE</span><strong>THE WOODLANDS · DOVER, DE</strong></div>
+              <div><span>WITH</span><strong>ALABAMA SHAKES</strong></div>
+            </div>
+          </div>
+
+          <div class="ticket-wrap">
+            <div class="ticket-tape tape-one" aria-hidden="true"></div>
+            <div class="ticket-tape tape-two" aria-hidden="true"></div>
+            <p class="ticket-label">TWO TICKETS · FOR YOU TWO</p>
+            <img class="ticket-image" src="assets/tickets.jpg" alt="Two tickets for Zach Bryan's With Heaven On Tour on September 19, 2026" />
+            <p class="love-note">Can’t wait to sing every word with you. Love, Jiwoo. ♥</p>
+          </div>
+        </div>
+        <div class="reveal-actions">
+          <button class="btn btn-peach" id="celebrateBtn"><span>Best girlfriend ever</span><span class="arrow">♥</span></button>
+          <button class="text-btn" data-go="0">Replay the surprise ↺</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="music-dock" id="musicDock" aria-label="Background music" aria-hidden="true">
+      <span class="music-pulse" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="track-name"><small>NOW PLAYING</small><strong>Tishomingo</strong></span>
+      <button id="musicToggle" aria-label="Pause Tishomingo" title="Pause music">Ⅱ</button>
+      <a href="https://www.youtube.com/watch?v=QWTGAL6Udak" target="_blank" rel="noreferrer" aria-label="Open Tishomingo by Zach Bryan on YouTube">↗</a>
+      <span id="musicMount" class="music-mount" aria-hidden="true"></span>
+    </aside>
+
+    <div class="confetti" aria-hidden="true"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
