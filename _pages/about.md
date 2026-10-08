@@ -32,7 +32,14 @@ author_profile: true
 <div>
   <p>Welcome!</p>
 
-  <p>I am a first-year PhD student in the <a href="https://www.bme.jhu.edu/" target="_blank">Department of Biomedical Engineering</a> at Johns Hopkins University, where I am fortunate to be advised by <a href="https://www.bme.jhu.edu/people/faculty/natalia-trayanova/" target="_blank">Natalia Trayanova</a> and affiliated with <a href="https://ai.jhu.edu/" target="_blank">Data Science and AI Institute (DSAI)</a>. My research focuses on building AI models using multimodal clinical data for diagnosis and prognostics of cardiovascular diseases, as well as investigating downstream machine learning methodologies to ensure the models' reliability.</p>
+  <p>I am a PhD student in the <a href="https://www.bme.jhu.edu/" target="_blank">Department of Biomedical Engineering</a> at Johns Hopkins University, where I am fortunate to be advised by <a href="https://www.bme.jhu.edu/people/faculty/natalia-trayanova/" target="_blank">Natalia Trayanova</a> and affiliated with the <a href="https://ai.jhu.edu/" target="_blank">Data Science and AI Institute (DSAI)</a>.</p>
+
+<p>My research focuses on:</p>
+
+<ul>
+  <li><strong>Multimodal clinical prediction</strong> for cardiovascular diagnosis and prognosis</li>
+  <li><strong>Reliable and trustworthy machine learning</strong> for clinical AI, including robustness, interpretability, and generalizability</li>
+</ul>
 
   <p> I completed my BS in Biomedical Engineering and Computer Science at Johns Hopkins University in May 2025. </p>
   
