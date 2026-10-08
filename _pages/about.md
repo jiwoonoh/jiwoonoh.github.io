@@ -49,7 +49,7 @@ redirect_from:
 
   <ul>
     <li><strong>Multimodal clinical AI for prediction and decision support</strong> with applications in cardiovascular medicine </li>
-    <li><strong>Reliable and evidence-grounded machine lear</strong>for healthcare</li>
+    <li><strong>Reliable and evidence-grounded machine learning</strong> for healthcare</li>
   </ul>
 
   <p>I completed my BS in Biomedical Engineering and Computer Science at Johns Hopkins University in May 2025.</p>

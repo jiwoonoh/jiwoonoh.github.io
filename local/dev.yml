@@ -1,0 +1,7 @@
+url: "http://localhost:4000"
+destination: local/site
+# Use the plugins available in the local Ruby installation.
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jemoji

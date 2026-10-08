@@ -1,0 +1,724 @@
+Configuration file: /Users/jiwoo_noh/jiwoonoh.github.io/_config.yml
+Configuration file: /Users/jiwoo_noh/jiwoonoh.github.io/local/dev.yml
+            Source: /Users/jiwoo_noh/jiwoonoh.github.io
+       Destination: /Users/jiwoo_noh/jiwoonoh.github.io/local/site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "vendor/breakpoint/breakpoint"; // media query mixins
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 10:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │ @import "variables";
+   │         ^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+12 │ @import "mixins";
+   │         ^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 12:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+13 │ @import "vendor/susy/susy";
+   │         ^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 13:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+15 │ @import "reset";
+   │         ^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use meta.function-exists instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
+   │               ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 10:15  @import
+    vendor/breakpoint/_breakpoint.scss 29:9                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 10:9                    root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+62 │ $dark-gray                  : mix(#000, $gray, 40%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 62:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+63 │ $darker-gray                : mix(#000, $gray, 60%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 63:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+64 │ $light-gray                 : mix(#fff, $gray, 50%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 64:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+65 │ $lighter-gray               : mix(#fff, $gray, 90%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 65:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(1, 4) or calc(1 / 4)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+145 │   gutters: 1/4,
+    │            ^^^
+    ╵
+    _variables.scss 145:12                                         @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 16px) or calc($value / 16px)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+28 │     @return $value / 16px * 1em;
+   │             ^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_helpers.scss 28:13                base-conversion()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_helpers.scss 20:13                breakpoint-to-base-em()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/parsers/single/_default.scss 8:29  breakpoint-parse-default()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/parsers/_single.scss 22:14         breakpoint-parse-single()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 153:18               breakpoint-parse()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 48:22                breakpoint()
+    vendor/breakpoint/_breakpoint.scss 46:16                                                       breakpoint()
+    _reset.scss 13:3                                                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9                                  root stylesheet
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/_reset.scss
+17 │     -webkit-text-size-adjust: 100%;
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+   ╵
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_breakpoint.scss
+65 │ ┌     @media #{$query-string} {
+66 │ │       @content;
+67 │ │     }
+   │ └─── nested rule
+   ╵
+    _reset.scss 17:3                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/_reset.scss
+18 │     -ms-text-size-adjust: 100%;
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+   ╵
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_breakpoint.scss
+65 │ ┌     @media #{$query-string} {
+66 │ │       @content;
+67 │ │     }
+   │ └─── nested rule
+   ╵
+    _reset.scss 18:3                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($span-sum, $context) or calc($span-sum / $context)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+156 │       $width: percentage($span-sum / $context);
+    │                          ^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 156:26  get-span-width()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 45:11   span()
+    _utilities.scss 171:24                                                                      @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                     breakpoint()
+    _utilities.scss 170:3                                                                       @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 18:9                               root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($_gutters, susy-sum($_columns, $_gutters, $_spread)) or calc($_gutters / susy-sum($_columns, $_gutters, $_spread))
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+80 │       $_gutter  : percentage($_gutters / susy-sum($_columns, $_gutters, $_spread));
+   │                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gutters.scss 80:30   get-gutter-width()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gutters.scss 100:25  get-gutters()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 70:13      span-math()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 13:12      span()
+    _navigation.scss 37:7                                                                          @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                        breakpoint()
+    _navigation.scss 36:5                                                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 24:9                                  root stylesheet
+DEPRECATION WARNING: lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 50%)
+color.adjust($color, $lightness: 50%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+385 │   border-color: lighten(#000,50);
+    │                 ^^^^^^^^^^^^^^^^
+    ╵
+    _forms.scss 385:17                                             @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 28:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($context, $n) or calc($context / $n)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+24 │   $line         : floor($context / $n);
+   │                         ^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gallery.scss 24:25  gallery()
+    _archive.scss 132:5                                                                           @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                       breakpoint()
+    _archive.scss 131:3                                                                           @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 31:9                                 root stylesheet
+WARNING: 291 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+                    done in 1.294 seconds.
+ Auto-regeneration: enabled for '/Users/jiwoo_noh/jiwoonoh.github.io'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2026-10-08 20:33:14
+                    _pages/about.md
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "vendor/breakpoint/breakpoint"; // media query mixins
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 10:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │ @import "variables";
+   │         ^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+12 │ @import "mixins";
+   │         ^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 12:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+13 │ @import "vendor/susy/susy";
+   │         ^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 13:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+15 │ @import "reset";
+   │         ^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use meta.function-exists instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
+   │               ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 10:15  @import
+    vendor/breakpoint/_breakpoint.scss 29:9                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 10:9                    root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+62 │ $dark-gray                  : mix(#000, $gray, 40%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 62:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+63 │ $darker-gray                : mix(#000, $gray, 60%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 63:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+64 │ $light-gray                 : mix(#fff, $gray, 50%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 64:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+65 │ $lighter-gray               : mix(#fff, $gray, 90%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 65:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(1, 4) or calc(1 / 4)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+145 │   gutters: 1/4,
+    │            ^^^
+    ╵
+    _variables.scss 145:12                                         @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 16px) or calc($value / 16px)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+28 │     @return $value / 16px * 1em;
+   │             ^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_helpers.scss 28:13                base-conversion()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_helpers.scss 20:13                breakpoint-to-base-em()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/parsers/single/_default.scss 8:29  breakpoint-parse-default()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/parsers/_single.scss 22:14         breakpoint-parse-single()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 153:18               breakpoint-parse()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 48:22                breakpoint()
+    vendor/breakpoint/_breakpoint.scss 46:16                                                       breakpoint()
+    _reset.scss 13:3                                                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9                                  root stylesheet
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/_reset.scss
+17 │     -webkit-text-size-adjust: 100%;
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+   ╵
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_breakpoint.scss
+65 │ ┌     @media #{$query-string} {
+66 │ │       @content;
+67 │ │     }
+   │ └─── nested rule
+   ╵
+    _reset.scss 17:3                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/_reset.scss
+18 │     -ms-text-size-adjust: 100%;
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+   ╵
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_breakpoint.scss
+65 │ ┌     @media #{$query-string} {
+66 │ │       @content;
+67 │ │     }
+   │ └─── nested rule
+   ╵
+    _reset.scss 18:3                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($span-sum, $context) or calc($span-sum / $context)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+156 │       $width: percentage($span-sum / $context);
+    │                          ^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 156:26  get-span-width()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 45:11   span()
+    _utilities.scss 171:24                                                                      @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                     breakpoint()
+    _utilities.scss 170:3                                                                       @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 18:9                               root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($_gutters, susy-sum($_columns, $_gutters, $_spread)) or calc($_gutters / susy-sum($_columns, $_gutters, $_spread))
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+80 │       $_gutter  : percentage($_gutters / susy-sum($_columns, $_gutters, $_spread));
+   │                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gutters.scss 80:30   get-gutter-width()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gutters.scss 100:25  get-gutters()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 70:13      span-math()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 13:12      span()
+    _navigation.scss 37:7                                                                          @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                        breakpoint()
+    _navigation.scss 36:5                                                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 24:9                                  root stylesheet
+DEPRECATION WARNING: lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 50%)
+color.adjust($color, $lightness: 50%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+385 │   border-color: lighten(#000,50);
+    │                 ^^^^^^^^^^^^^^^^
+    ╵
+    _forms.scss 385:17                                             @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 28:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($context, $n) or calc($context / $n)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+24 │   $line         : floor($context / $n);
+   │                         ^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gallery.scss 24:25  gallery()
+    _archive.scss 132:5                                                                           @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                       breakpoint()
+    _archive.scss 131:3                                                                           @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 31:9                                 root stylesheet
+WARNING: 291 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+                    ...done in 0.707981 seconds.
+                    
+      Regenerating: 2 file(s) changed at 2026-10-08 20:33:17
+                    _pages/.git/index
+                    _pages/.git/objects/27/2f08bc44d29de7c10c602c16882dc5ad03a7dd
+       Jekyll Feed: Generating feed for posts
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ @import "vendor/breakpoint/breakpoint"; // media query mixins
+   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 10:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │ @import "variables";
+   │         ^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+12 │ @import "mixins";
+   │         ^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 12:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+13 │ @import "vendor/susy/susy";
+   │         ^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 13:9  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+15 │ @import "reset";
+   │         ^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use meta.function-exists instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │ $Memo-Exists: function-exists(memo-get) and function-exists(memo-set);
+   │               ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 10:15  @import
+    vendor/breakpoint/_breakpoint.scss 29:9                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 10:9                    root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+62 │ $dark-gray                  : mix(#000, $gray, 40%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 62:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+63 │ $darker-gray                : mix(#000, $gray, 60%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 63:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+64 │ $light-gray                 : mix(#fff, $gray, 50%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 64:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use color.mix instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+65 │ $lighter-gray               : mix(#fff, $gray, 90%);
+   │                               ^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    _variables.scss 65:31                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div(1, 4) or calc(1 / 4)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+145 │   gutters: 1/4,
+    │            ^^^
+    ╵
+    _variables.scss 145:12                                         @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 11:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($value, 16px) or calc($value / 16px)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+28 │     @return $value / 16px * 1em;
+   │             ^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_helpers.scss 28:13                base-conversion()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_helpers.scss 20:13                breakpoint-to-base-em()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/parsers/single/_default.scss 8:29  breakpoint-parse-default()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/parsers/_single.scss 22:14         breakpoint-parse-single()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 153:18               breakpoint-parse()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_parsers.scss 48:22                breakpoint()
+    vendor/breakpoint/_breakpoint.scss 46:16                                                       breakpoint()
+    _reset.scss 13:3                                                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9                                  root stylesheet
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/_reset.scss
+17 │     -webkit-text-size-adjust: 100%;
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+   ╵
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_breakpoint.scss
+65 │ ┌     @media #{$query-string} {
+66 │ │       @content;
+67 │ │     }
+   │ └─── nested rule
+   ╵
+    _reset.scss 17:3                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Sass's behavior for declarations that appear after nested
+rules will be changing to match the behavior specified by CSS in an upcoming
+version. To keep the existing behavior, move the declaration above the nested
+rule. To opt into the new behavior, wrap the declaration in `& {}`.
+
+More info: https://sass-lang.com/d/mixed-decls
+
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/_reset.scss
+18 │     -ms-text-size-adjust: 100%;
+   │     ^^^^^^^^^^^^^^^^^^^^^^^^^^ declaration
+   ╵
+   ┌──> /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/breakpoint/_breakpoint.scss
+65 │ ┌     @media #{$query-string} {
+66 │ │       @content;
+67 │ │     }
+   │ └─── nested rule
+   ╵
+    _reset.scss 18:3                                               @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 15:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($span-sum, $context) or calc($span-sum / $context)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+    ╷
+156 │       $width: percentage($span-sum / $context);
+    │                          ^^^^^^^^^^^^^^^^^^^^
+    ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 156:26  get-span-width()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 45:11   span()
+    _utilities.scss 171:24                                                                      @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                     breakpoint()
+    _utilities.scss 170:3                                                                       @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 18:9                               root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($_gutters, susy-sum($_columns, $_gutters, $_spread)) or calc($_gutters / susy-sum($_columns, $_gutters, $_spread))
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+80 │       $_gutter  : percentage($_gutters / susy-sum($_columns, $_gutters, $_spread));
+   │                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gutters.scss 80:30   get-gutter-width()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gutters.scss 100:25  get-gutters()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 70:13      span-math()
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_span.scss 13:12      span()
+    _navigation.scss 37:7                                                                          @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                        breakpoint()
+    _navigation.scss 36:5                                                                          @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 24:9                                  root stylesheet
+DEPRECATION WARNING: lighten() is deprecated. Suggestions:
+
+color.scale($color, $lightness: 50%)
+color.adjust($color, $lightness: 50%)
+
+More info: https://sass-lang.com/d/color-functions
+
+    ╷
+385 │   border-color: lighten(#000,50);
+    │                 ^^^^^^^^^^^^^^^^
+    ╵
+    _forms.scss 385:17                                             @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 28:9  root stylesheet
+DEPRECATION WARNING: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+
+Recommendation: math.div($context, $n) or calc($context / $n)
+
+More info and automated migrator: https://sass-lang.com/d/slash-div
+
+   ╷
+24 │   $line         : floor($context / $n);
+   │                         ^^^^^^^^^^^^^
+   ╵
+    /Users/jiwoo_noh/jiwoonoh.github.io/_sass/vendor/susy/susy/language/susy/_gallery.scss 24:25  gallery()
+    _archive.scss 132:5                                                                           @content
+    vendor/breakpoint/_breakpoint.scss 66:7                                                       breakpoint()
+    _archive.scss 131:3                                                                           @import
+    /Users/jiwoo_noh/jiwoonoh.github.io/assets/css/main.scss 31:9                                 root stylesheet
+WARNING: 291 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+                    ...done in 0.448405 seconds.
+                    

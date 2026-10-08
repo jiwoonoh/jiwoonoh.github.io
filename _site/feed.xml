@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-10-08T19:56:08+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">home</title><subtitle>personal description</subtitle><author><name>Jiwoo Noh</name><email>jnoh10@jh.edu</email></author><entry><title type="html">When Explainable AI Becomes Persuasive</title><link href="http://localhost:4000/blog/2026/xai-automation-bias" rel="alternate" type="text/html" title="When Explainable AI Becomes Persuasive" /><published>2026-08-10T00:00:00+00:00</published><updated>2026-08-10T00:00:00+00:00</updated><id>http://localhost:4000/blog/2026/blog-post-5</id><content type="html" xml:base="http://localhost:4000/blog/2026/xai-automation-bias"><![CDATA[<!-- Add this style block to hide the extra elements -->
+
+<style>
+  .page__related,
+  .page__navigation,
+  p.page__meta,
+  .page__share {
+    display: none !important;
+  }
+</style>
+
+<p>One of the most common criticisms of clinical AI is that it behaves like a black box. The intuitive solution is explainable AI (XAI): show users why a model made its prediction, and they should be able to use it more safely. <strong>Divergent impacts of explainable AI for dermatological diagnosis on clinicians versus lay people</strong> by Xu et al. (2026) complicates that assumption <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. An explanation does not merely reveal information about a model. It also changes the person receiving it.</p>
+
+<p>The paper studies how different explanations affect dermatological diagnosis among the general public and primary care physicians (PCPs). Its most important result is not simply that AI improved accuracy. It is that the same natural-language explanation had opposite risks depending on who read it: it increased lay users’ tendency to follow both correct and incorrect AI predictions, while experienced PCPs were more resistant to incorrect advice.</p>
+
+<p>This makes the paper especially relevant to my interest in interpretable and trustworthy medical AI. A model can be explainable in a technical sense while its explanation still makes the combined human-AI system less reliable.</p>
+
+<h3 id="what-counts-as-an-explanation">What counts as an explanation?</h3>
+<p>The authors compared four forms of AI assistance:</p>
+
+<ul>
+  <li><strong>Basic:</strong> the predicted diagnosis and model confidence.</li>
+  <li><strong>GradCAM:</strong> a heatmap showing which image region most influenced the prediction.</li>
+  <li><strong>Content-based image retrieval (CBIR):</strong> three visually similar reference cases.</li>
+  <li><strong>Large language model (LLM):</strong> a natural-language rationale describing visual features that supposedly support the prediction.</li>
+</ul>
+
+<p><img src="/images/XAI-Derm-1.png" width="800" /></p>
+
+<p>There is an important distinction in the LLM condition. GPT-4V did <strong>not</strong> independently diagnose the image. A separately trained image classifier first produced a label. The image and that label were then given to GPT-4V with instructions to explain why the label was correct. If the classifier was wrong, GPT-4V was still asked to justify the wrong answer.</p>
+
+<p>Therefore, the generated text should not be interpreted as a faithful explanation of the classifier’s internal reasoning. It is a post-hoc rationale conditioned on the classifier’s output. This design is useful because it resembles a real failure mode: once an AI system commits to a diagnosis, a fluent language model can construct a plausible story around it whether or not the diagnosis is correct.</p>
+
+<p>GradCAM, CBIR, and LLM explanations also require different kinds of cognitive work. A heatmap must be interpreted, retrieved images must be compared, but an LLM directly connects observations to a conclusion in authoritative prose. That convenience can be helpful, yet it can also make the explanation unusually persuasive.</p>
+
+<h3 id="two-studies-three-levels-of-expertise">Two studies, three levels of expertise</h3>
+<p>The researchers conducted two randomized online experiments using a 4-by-2 between-subjects design. Each participant was assigned one explanation type and one decision order:</p>
+
+<ul>
+  <li><strong>Human-First:</strong> make an independent diagnosis, then see the AI and reconsider.</li>
+  <li><strong>AI-First:</strong> see the AI alongside the image, then reconsider after the AI output is hidden.</li>
+</ul>
+
+<p>Every participant reviewed 12 images and reported a diagnosis and confidence twice.</p>
+
+<p>Study 1 recruited 623 members of the general public without medical backgrounds. They performed a binary melanoma-versus-nevus task. The images were balanced across diagnoses and between lighter skin tones (Fitzpatrick I-IV) and darker skin tones (V-VI). Each participant saw ten correct and two incorrect AI predictions, fixing AI accuracy at 83.3%.</p>
+
+<p>Study 2 recruited 153 PCPs with an average of six years in practice. They entered an open-ended top-three differential diagnosis for images emphasizing atopic dermatitis, pityriasis rosea, Lyme disease, and cutaneous T-cell lymphoma. The AI was correct on an expected 9.5 of 12 cases, or 79.2%. An additional cohort of 320 medical students completed the same task, allowing the authors to examine expertise without directly comparing the easier public task with the harder PCP task.</p>
+
+<p>The paper appropriately warns that Studies 1 and 2 are not directly comparable. The participants, diagnoses, and response formats all differ. The medical-student cohort is therefore important: it provides a comparison on the same task rather than assuming that every difference between the public and PCPs is caused by expertise.</p>
+
+<h3 id="fairness-came-from-the-predictive-model-not-the-explanation">Fairness came from the predictive model, not the explanation</h3>
+<p>Before studying explanations, the authors trained image classifiers with conditional domain-adversarial neural networks (CDANNs) to reduce performance disparities across skin tones. For the melanoma-versus-nevus model, fairness-constrained training reduced the balanced-accuracy gap from 9.1 to 2.1 percentage points while maintaining similar overall performance. For the main PCP model, the gap decreased from 14.4 to 5.6 points.</p>
+
+<p>Once humans received AI assistance, their own skin-tone-related disparities also narrowed. Among lay participants in the Human-First group, the accuracy gap decreased from approximately 3.3 to 1.7 percentage points. Among PCPs, it decreased from approximately 4.6 to 2.9 points.</p>
+
+<p>However, the authors found no significant interaction between explanation type, decision round, and skin tone. The improvement in equity was mainly attributed to the underlying fairness-constrained prediction model rather than GradCAM, CBIR, or LLM explanations.</p>
+
+<p>This distinction matters. An explanation cannot repair a model whose errors are systematically concentrated in an underrepresented group. Human-AI fairness depends first on the quality and distribution of the model’s predictions. Explanation design determines how users react to those predictions afterward.</p>
+
+<h3 id="llm-explanations-amplified-lay-users-deference">LLM explanations amplified lay users’ deference</h3>
+<p>Among the 335 lay participants assigned to the Human-First workflow, average accuracy increased from 69.7% without AI to 75.8% after AI assistance.</p>
+
+<p><img src="/images/XAI-Derm-2.png" width="800" /></p>
+
+<p>All four assistance types improved overall performance. The numerical improvement was largest for LLM explanations at 7.7 percentage points, followed by CBIR at 6.3, GradCAM at 5.5, and the basic prediction at 4.8. Looking only at the average, natural-language explanations appear to be the best interface.</p>
+
+<p>The average hides the central result. When the AI was correct, the LLM group improved by 13.4 points, more than the basic, GradCAM, or CBIR groups. When the AI was wrong, the LLM group declined by 21.1 points, also the largest deterioration. Compared with the basic condition, the additional harm from an incorrect LLM explanation was statistically significant in the authors’ difference-in-differences analysis.</p>
+
+<p>The LLM therefore did not simply add diagnostic information. It increased <strong>AI deference</strong>: users were more likely to move toward the AI prediction regardless of whether that prediction was correct. When the model was accurate most of the time, this behavior raised average performance. On the deliberately included error cases, the same behavior became automation bias.</p>
+
+<p>This is why evaluating XAI only with mean accuracy can be misleading. A persuasive explanation can look beneficial when model accuracy is high while making rare failures more difficult for users to catch. In medicine, those failures may be the cases where human oversight matters most.</p>
+
+<h3 id="expertise-changed-how-explanations-were-used">Expertise changed how explanations were used</h3>
+<p>The PCP task was substantially more difficult. In the Human-First group, unassisted top-one accuracy was 11.5%, and top-three accuracy was 16.1%. AI assistance increased these measures by 21.5 and 43.5 percentage points, respectively.</p>
+
+<p><img src="/images/XAI-Derm-3.png" width="800" /></p>
+
+<p>Unlike the general public, PCPs did not show a significant decrease in aggregate accuracy when AI predictions were wrong. The basic prediction produced the largest numerical top-one improvement, while the LLM explanation produced the smallest; however, the difference between those two explanation groups was not statistically significant. The evidence therefore does not show that elaborate explanations improved PCP accuracy more than simply displaying the prediction and confidence.</p>
+
+<p>LLM explanations affected PCPs in another way. The correlation between confidence and accuracy increased from \(r=0.084\) without AI to \(r=0.494\) with LLM explanations. In other words, the narratives did not yield the largest accuracy gain, but they helped PCP confidence better reflect actual performance.</p>
+
+<p>The medical-student comparison further suggests that expertise matters. On the same differential-diagnosis task, students were more likely than PCPs to follow the AI regardless of its correctness. The authors describe clinical knowledge as a <strong>cognitive firewall</strong>: a lay user may use an explanation to form a belief, while an experienced clinician can compare its specific claims with an existing diagnostic hypothesis.</p>
+
+<p>That interpretation is plausible, but expertise should not be treated as complete protection. PCPs were not dermatologists, their initial task accuracy was low, and the study included only a small number of incorrect AI cases per person. Clinical experience reduced susceptibility in this setting; it did not make automation bias impossible.</p>
+
+<h3 id="the-users-who-needed-help-were-also-easier-to-mislead">The users who needed help were also easier to mislead</h3>
+<p>The authors classified a participant as fully deferential when their correct final answers occurred only on cases where the AI was correct and they remained incorrect whenever the AI was wrong.</p>
+
+<p><img src="/images/XAI-Derm-4.png" width="800" /></p>
+
+<p>In the general-public Human-First group, deferential users began with 65.8% accuracy, compared with 72.5% among non-deferential users. Deferential PCPs also had substantially lower initial performance. This creates a difficult design problem: the people who could gain the most from decision support may also have the least independent evidence with which to reject a convincing error.</p>
+
+<p>This relationship is associative rather than causal. Deference was defined from participants’ response patterns after seeing only 12 cases, including approximately two AI errors, and low initial performance contributes mechanically to some of those patterns. Still, the broader implication is useful. A safe system cannot assume that every user has the same ability to audit an explanation.</p>
+
+<h3 id="decision-order-changed-anchoring-more-than-final-accuracy">Decision order changed anchoring more than final accuracy</h3>
+<p>By the final decision round, Human-First and AI-First workflows produced similar accuracy for both lay users and PCPs. However, showing AI first generally increased the proportion of users whose answers tracked the AI.</p>
+
+<p><img src="/images/XAI-Derm-5.png" width="800" /></p>
+
+<p>Among the general public, AI-First increased deference by an average of 8.4 percentage points across explanation types, although the covariate-adjusted comparisons were not statistically significant. Among PCPs, the largest descriptive increase occurred with LLM explanations at 19 points. These subgroup sizes were small, so the precise values should be interpreted cautiously, but the pattern is consistent with anchoring: once the AI supplies a diagnosis, subsequent reasoning begins from that suggestion.</p>
+
+<p>The authors recommend a Human-First workflow. Even when final accuracy is unchanged, requiring an independent initial judgment preserves information that would otherwise be lost. A disagreement between the human and model can then trigger deeper evidence, a confidence check, or a second opinion rather than allowing the AI to silently define the starting point.</p>
+
+<h3 id="limitations">Limitations</h3>
+<p>Several design choices limit how far these results can be generalized:</p>
+
+<ul>
+  <li>Each participant saw only 12 images in an online experiment without patient history, demographics, symptoms, longitudinal information, or laboratory data. This is much simpler than real dermatological diagnosis.</li>
+  <li>AI accuracy was intentionally fixed near 80%, diseases and skin tones were balanced, and high-quality images were selected. Real deployment includes prevalence shift, clustered failures, uncertain image quality, and users who do not know how often the system is wrong.</li>
+  <li>The LLM result is specific to a single-pass GPT-4V rationale generated from a fixed classifier label and a particular prompt. It does not evaluate end-to-end LLM diagnosis or prove that every natural-language explanation will have the same effect.</li>
+  <li>The four XAI conditions communicate different amounts and types of information. Their effects combine explanation content, visual design, cognitive effort, and presentation style.</li>
+  <li>In Study 2, the AI classified 34 diseases, while PCPs entered unrestricted free text aided by autocomplete containing 445 disease names. The study was designed to measure reactions to AI rather than compare human and model capability, but this asymmetry complicates interpretation of the very large accuracy improvement.</li>
+  <li>Only 16.8% of the complete training image collection had expert-annotated Fitzpatrick labels; weaker image-derived skin-tone labels were used for fairness training on the remainder. The user-study images themselves used expert annotations and were balanced, but the light/dark grouping is still a coarse representation of skin appearance.</li>
+  <li>Dermatologists’ ratings of explanation correctness and informativeness had only fair-to-moderate interrater reliability (\(\kappa=0.42\) and \(0.37\)), illustrating that explanation quality is itself difficult to define.</li>
+</ul>
+
+<p>The revised analyses use linear mixed models with participant- and image-level effects and relevant covariates, which is stronger than treating every response as independent. Nevertheless, the number of subgroup and post-hoc comparisons means that marginal findings should be interpreted more cautiously than the main correct-versus-incorrect AI effects.</p>
+
+<h3 id="thoughts">Thoughts</h3>
+<p>This paper changes how I think about the “black box” problem. Explainability is often presented as a model property: either the model can explain itself or it cannot. In practice, an explanation is part of an interaction among a model, an interface, a user, and a clinical decision. Its safety depends on the user’s expertise, the model’s correctness, and when the explanation is shown.</p>
+
+<p>The same issue applies beyond dermatology. In cardiology, a model might highlight an ECG segment, retrieve similar echocardiograms, or generate a fluent rationale for a risk prediction. A visually or linguistically convincing explanation could help a clinician identify relevant evidence. It could also encourage the clinician to reinterpret ambiguous findings in support of an incorrect prediction.</p>
+
+<p>For this reason, XAI evaluation should not stop at asking whether an explanation looks reasonable. We should measure the combined human-AI system separately when the model is correct and when it is wrong, across users with different levels of expertise, and under realistic decision workflows. A useful explanation should help a person verify or falsify a prediction—not simply make the prediction easier to believe.</p>
+
+<p>The paper’s most actionable lesson may therefore be about interface design rather than explanation algorithms. Collect an independent judgment before revealing the AI. Display uncertainty and fallibility. Treat disagreement as a reason to inspect more evidence. Adapt the amount and type of explanation to the user. Most importantly, remember that a persuasive explanation can increase trust faster than it increases understanding.</p>
+
+<p><em>Figures are reproduced without modification from Xu et al. for noncommercial use under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.</em></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Xu, X. O., Hu, H., Zhang, H., et al. (2026). Divergent impacts of explainable AI for dermatological diagnosis on clinicians versus lay people. <em>Nature Medicine</em>. Published August 4, 2026. https://doi.org/10.1038/s41591-026-04553-w <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Jiwoo Noh</name><email>jnoh10@jh.edu</email></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">PRISM2: Learning Pathology through Clinical Dialogue</title><link href="http://localhost:4000/blog/2026/prism2-pathology" rel="alternate" type="text/html" title="PRISM2: Learning Pathology through Clinical Dialogue" /><published>2026-08-03T00:00:00+00:00</published><updated>2026-08-03T00:00:00+00:00</updated><id>http://localhost:4000/blog/2026/blog-post-4</id><content type="html" xml:base="http://localhost:4000/blog/2026/prism2-pathology"><![CDATA[<!-- Add this style block to hide the extra elements -->
+
+<style>
+  .page__related,
+  .page__navigation,
+  p.page__meta,
+  .page__share {
+    display: none !important;
+  }
+</style>
+
+<p><strong>End-to-end multimodal pathology foundation model with clinical dialogue</strong> by Vorontsov et al. (2026) introduces PRISM2 <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. The headline result is impressive: without task-specific training, one generalist model matched or exceeded three specialized clinical-grade systems for detecting invasive cancer in prostate, breast, and breast lymph-node specimens. However, the part I found more interesting is <em>how</em> the authors trained the model. Rather than treating pathology reports as captions, PRISM2 converts them into clinical questions and answers so that the model learns to connect histology with the concepts a pathologist actually reasons about.</p>
+
+<p>The paper brings together several themes that interest me: multimodal representation learning, weak supervision from routinely collected clinical data, transfer learning, calibration, and the gap between benchmark performance and real clinical generalizability.</p>
+
+<h3 id="why-tile-level-pathology-models-are-not-enough">Why tile-level pathology models are not enough</h3>
+<p>A whole-slide image (WSI) is a gigapixel image. It is too large to pass directly through a conventional neural network, so most computational pathology pipelines divide the slide into thousands of small tiles. A pretrained image encoder can represent each tile, but a clinically useful prediction is usually made for a specimen or patient rather than for one isolated patch.</p>
+
+<p>This creates an aggregation problem. A task-specific model must learn which tiles matter and how findings across multiple slides fit together. Training a new aggregator for every outcome requires labels and can overfit, especially for rare cancers or small clinical cohorts. PRISM2 instead aims to learn a reusable <strong>slide-level representation</strong> before the downstream task is defined.</p>
+
+<p><img src="/images/PRISM2-1.png" width="800" /></p>
+
+<p>The pipeline has three main components:</p>
+
+<ol>
+  <li>A frozen <strong>Virchow2 tile encoder</strong> converts every 224-by-224-pixel tissue tile into an embedding.</li>
+  <li>A trainable <strong>Perceiver slide encoder</strong> compresses as many as 100,000 tile embeddings from one specimen into 256 latent vectors and a compact base embedding.</li>
+  <li>A <strong>Phi-3 Mini vision-language model</strong> receives the slide latents and a text prompt. It produces an answer as well as a diagnosis-focused representation.</li>
+</ol>
+
+<p>Although the paper calls PRISM2 multimodal, the clinical modality available at inference is still the H&amp;E slide; language provides the prompt and the supervisory structure learned during pretraining. The important multimodal alignment is therefore between tissue morphology and diagnostic language.</p>
+
+<h3 id="turning-routine-reports-into-14-million-conversations">Turning routine reports into 14 million conversations</h3>
+<p>PRISM2 was trained using 685,507 specimens from 200,692 patients, corresponding to 2,350,518 WSIs and the same number of paired clinical reports as specimens. The reports and all slides were processed at Memorial Sloan Kettering Cancer Center (MSK), although 36% of specimens had been submitted from outside institutions for review.</p>
+
+<p><img src="/images/PRISM2-2.png" width="800" /></p>
+
+<p>Routine reports are abundant, but they are inconsistent supervisory targets. Some follow structured templates, while others are free text; information density and reporting practices vary. The authors used GPT-4o and GPT-4.1 to transform each report into several training formats:</p>
+
+<ul>
+  <li>a rewritten diagnostic report,</li>
+  <li>yes/no questions,</li>
+  <li>open-ended questions,</li>
+  <li>multiple-choice questions based on College of American Pathologists (CAP) protocols, and</li>
+  <li>image-report matching examples.</li>
+</ul>
+
+<p>This process produced approximately 685,000 report rewrites and 14 million question-answer pairs. The key idea is that report generation alone asks the model to reproduce a long document, whereas targeted dialogue explicitly identifies the concepts that should be visible in the slide. Questions such as “Is ductal carcinoma in situ present?” or “What is the histologic type?” turn an unstructured report into many tractable supervisory signals.</p>
+
+<p>PRISM2 combines two objectives. A contrastive loss brings the slide representation close to the paired diagnostic-summary representation, while an autoregressive loss teaches the language model to generate the appropriate answer:</p>
+
+\[\mathcal{L}_{total}=\lambda_{con}\mathcal{L}_{con}+\lambda_{chat}\mathcal{L}_{chat}.\]
+
+<p>Training occurs in two stages. First, the slide encoder and image-text alignment components are trained while Phi-3 Mini remains frozen. Second, the slide encoder is frozen and the language model is fine-tuned on dialogue. This detail matters because continued diagnostic training can make a representation more specialized while making it less transferable.</p>
+
+<h3 id="one-slide-two-representations">One slide, two representations</h3>
+<p>PRISM2 exposes two different embeddings:</p>
+
+<ul>
+  <li>The <strong>base embedding</strong> comes directly from the slide encoder. It retains broader morphological information and transfers better to outcomes that were not described in the dialogue data, such as biomarkers and survival.</li>
+  <li>The <strong>diagnostic embedding</strong> comes from the hidden state of the language model after it has integrated the slide and prompt. It performs better on cancer detection, subtyping, grading, and other tasks closely aligned with pathology reports.</li>
+</ul>
+
+<p>I found this separation especially important. A foundation model is often discussed as though one representation should be optimal for every task, but specialization has a cost. In the ablation study, longer diagnostic training improved diagnostic performance while weakening biomarker and survival transfer. Freezing the slide encoder early preserved the general base representation and allowed the language model to specialize separately.</p>
+
+<p>The result is not simply two versions of the same embedding. It is an architectural acknowledgment that “generalizable” depends on the downstream question. The feature most useful for reproducing a diagnosis may not be the feature most useful for predicting a mutation or a long-term outcome.</p>
+
+<h3 id="prompt-based-inference-is-not-the-same-as-zero-shot-inference">Prompt-based inference is not the same as zero-shot inference</h3>
+<p>PRISM2 can answer a yes/no or multiple-choice question without training a new classifier. The paper calls this <strong>prompt-based inference</strong>, not zero-shot inference, because the diagnostic concepts being queried were already present during pretraining.</p>
+
+<p>For a candidate answer \(c\), PRISM2 scores how much more likely the answer becomes after seeing the slide:</p>
+
+\[f(w_{&lt;i},x)=\arg\max_{c \in C}\left[\log P(c\mid w_{&lt;i},x)-\log P(c\mid w_{&lt;i})\right].\]
+
+<p>The second term subtracts the model’s text-only preference for an answer. This is important because a language model may prefer “yes” or a common diagnostic label even before seeing the tissue. The correction asks whether the image itself increased the probability of that answer.</p>
+
+<p><img src="/images/PRISM2-3.png" width="800" /></p>
+
+<p>Using a fixed probability threshold of 0.5, PRISM2 achieved balanced accuracies of 0.933 for prostate, 0.967 for breast, and 0.941 for breast lymph-node cancer detection. These results matched the Paige Prostate and Breast systems and exceeded Paige BLN on their corresponding test datasets. PRISM and TITAN, two other slide-level vision-language models, performed worse using contrastive prompt classification.</p>
+
+<p>This is a strong result, but the comparison needs context. The clinical products used carefully calibrated operating thresholds, whereas PRISM2 used a fixed threshold. On the other hand, all product benchmarks were internal datasets, the slides were scanned at MSK, and many authors were employees of the company that developed both PRISM2 and the comparison products. The evaluation patients were held out from PRISM2 and Virchow2 training, but this is not the same as prospective deployment in a new health system.</p>
+
+<h3 id="what-transfers-beyond-diagnosis">What transfers beyond diagnosis?</h3>
+<p>The paper evaluates far more than the three headline detection tasks. Linear probes were trained on PRISM2 embeddings for pan-cancer and rare-cancer detection, breast and gastrointestinal pathology, public TCGA subtyping datasets, lymph-node staging, prostate and colorectal grading, biomarker prediction, and survival.</p>
+
+<p><img src="/images/PRISM2-4.png" width="800" /></p>
+
+<p>For pan-cancer detection, the diagnostic embedding reached an AUC of 0.967, compared with 0.956 for the base embedding, 0.947 for PRISM, and 0.931 for TITAN. The drop from common and rare cancers was small: the PRISM2 diagnostic embedding achieved 0.957 AUC on the rare-cancer subset.</p>
+
+<p>The result that stood out to me was survival transfer. After pretraining, the authors fine-tuned the slide encoder using 225,597 cases with overall-survival information. On colorectal cancer recurrence-free survival, the resulting survival embedding achieved a C-index of 0.809, compared with 0.773 for the same architecture trained from scratch. This suggests that large-scale report-supervised pretraining can provide a useful starting point even when the downstream outcome was absent from the original dialogue.</p>
+
+<p>Biomarker prediction was less dramatic. PRISM2 base embeddings had the highest mean AUC on the MSK and TCGA biomarker benchmarks, but the margins over the next-best models were small. Together, these experiments show both the potential and the boundary of clinical-language supervision: it strongly helps tasks that resemble diagnostic reports, while outcomes not routinely documented in those reports may still require explicit supervision.</p>
+
+<h3 id="report-completion-reveals-the-calibration-problem">Report completion reveals the calibration problem</h3>
+<p>PRISM2 also attempts to fill fields in a CAP breast-biopsy report through multiple-choice and yes/no questions. This is closer to a possible clinical workflow than a single benchmark label: a model could pre-populate a worksheet for pathologist review.</p>
+
+<p><img src="/images/PRISM2-5.png" width="800" /></p>
+
+<p>The model shows that it contains useful information, but its raw outputs are not uniformly reliable. Across the represented histologic types, adjusted mean recall increased from 0.519 to 0.731 after per-class calibration. For the common distinction between invasive ductal and invasive lobular carcinoma, performance was much stronger at 0.933 and did not benefit from calibration. Rare subtypes, lymphovascular invasion, and several DCIS fields were more difficult.</p>
+
+<p>This gap is a useful reminder that discrimination and calibration are different. A model may rank cases correctly while still producing probabilities that cannot be used directly. In clinical practice, the threshold determines which cases are flagged, which fields are filled, and how many errors reach a pathologist. Calibration therefore is not a cosmetic postprocessing step.</p>
+
+<h3 id="the-weakness-hidden-inside-scalable-supervision">The weakness hidden inside scalable supervision</h3>
+<p>The same reports that make PRISM2 scalable also carry clinical documentation biases. Positive findings are usually mentioned, while absent findings often are not. To create negative yes/no examples, the pipeline pairs a question from one report with another randomly selected specimen and assumes that an unmentioned finding is absent.</p>
+
+<p>That assumption sometimes fails. In a pathologist review of 50 held-out specimens, the reference-data error rate was 3% for open-ended and multiple-choice questions, 8% for diagnostic summaries, and 18% for complementary yes/no questions. Errors included inaccurate ground truth, irrelevant questions, contradictions in the source report, findings copied from another specimen part, and questions requiring unavailable clinical context. The model itself made hallucinations, omissions, misclassifications, and logically inconsistent answers across prompts. Question-answering error rates were 7–11%, while full report generation was more error-prone.</p>
+
+<p>This section connects closely to the missing-data problem. “Not mentioned” is not equivalent to “not present,” just as “not measured” is not equivalent to “normal.” Clinical reports reflect what a pathologist noticed, what a template requested, and what was relevant to that case. Scaling supervision from routine documentation is powerful, but it can also scale the documentation process’s blind spots.</p>
+
+<h3 id="limitations">Limitations</h3>
+<p>Several limitations affect how I interpret the results:</p>
+
+<ul>
+  <li>The slide encoder has no positional encoding and uses one magnification. It can recognize local morphology but may not truly reason about global spatial relationships, lesion counts, or measurements.</li>
+  <li>Training and internal evaluation slides were scanned at MSK on Leica scanners. Even externally submitted specimens were scanned and reported at MSK, so robustness to another laboratory’s staining, scanner, preparation, and reporting workflow remains uncertain.</li>
+  <li>Much of the training data and several important evaluation datasets are proprietary. The authors released embeddings and dataset tables for reproducibility, but the underlying patient slides are available only through request.</li>
+  <li>Prompt-based inference is not zero-shot learning, and matching a clinical-grade product on a retrospective product test set is not equivalent to clinical validation of PRISM2 as a general diagnostic system.</li>
+  <li>Report completion was evaluated without a full analysis of inter-pathologist variability. This is especially important for subjective tasks such as grading and rare-subtype classification.</li>
+  <li>The study evaluates prognosis but not treatment effects or counterfactual outcomes. A survival representation should not be interpreted as a model that can recommend an intervention.</li>
+</ul>
+
+<h3 id="thoughts">Thoughts</h3>
+<p>PRISM2 is compelling because it uses language as more than an additional input modality. Clinical dialogue becomes a way to organize supervision: the model is taught not only that an image and report belong together, but also which diagnostic questions connect them. The ablation study supports this distinction—adding dialogue increased prompt-based balanced accuracy from approximately random performance (0.498) to 0.653 before the final scale-up.</p>
+
+<p>For my own interests in cardiovascular prediction, the most transferable lesson is the separation between a general representation and a task-specialized one. The same idea could apply to ECGs, echocardiograms, cardiac imaging, and their paired clinical reports. A representation trained to reproduce an interpretation may excel at diagnosis, while a less specialized representation may retain information that is more useful for future risk or treatment response.</p>
+
+<p>At the same time, PRISM2 reinforces a theme from my previous post on ICYM²I: routinely collected clinical data are shaped by workflow. Reports are not exhaustive descriptions of biology, and the presence or absence of a documented finding is not random. A model trained at this scale can learn rich clinical structure, but it can also learn what institutions choose to record, which cases receive expert review, and which findings templates make easy to express.</p>
+
+<p>The paper therefore feels most useful as both a demonstration and a warning. Clinical language can turn millions of otherwise weakly labeled images into a powerful foundation model. However, the path from report-supervised pretraining to a trustworthy clinical system still requires external validation, calibration, careful analysis of label construction, and a clear definition of which representation should be used for which question.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Vorontsov, E., Shaikovski, G., Casson, A., et al. (2026). End-to-end multimodal pathology foundation model with clinical dialogue. <em>Nature Medicine</em>. Published July 31, 2026. https://doi.org/10.1038/s41591-026-04521-4 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Jiwoo Noh</name><email>jnoh10@jh.edu</email></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">ICYM²I: Multimodal Informativeness under Missingness</title><link href="http://localhost:4000/blog/2026/icym2i-missingness" rel="alternate" type="text/html" title="ICYM²I: Multimodal Informativeness under Missingness" /><published>2026-07-14T00:00:00+00:00</published><updated>2026-07-14T00:00:00+00:00</updated><id>http://localhost:4000/blog/2026/blog-post-3</id><content type="html" xml:base="http://localhost:4000/blog/2026/icym2i-missingness"><![CDATA[<!-- Add this style block to hide the extra elements -->
+
+<style>
+  .page__related,
+  .page__navigation,
+  p.page__meta,
+  .page__share {
+    display: none !important;
+  }
+</style>
+
+<p>A few months ago, I gave another Machine Learning subgroup presentation on <strong>ICYM²I: The Illusion of Multimodal Informativeness under Missingness</strong> by Choi et al. (2026) <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. The paper asks a deceptively simple question: if a modality is missing for most patients, how can we know how useful it would be if it were collected for everyone?</p>
+
+<p>This question is especially important in medicine. Chest X-rays (CXRs), magnetic resonance imaging (MRI), biopsies, echocardiograms, genomics, and laboratory tests are not collected randomly. They are ordered based on symptoms, previous test results, cost, clinical suspicion, and local workflow. Therefore, the presence of a modality, or the lack thereof, already contains information about the patient.</p>
+
+<h3 id="complete-case-analysis-is-not-neutral">Complete-case analysis is not neutral</h3>
+<p>A common approach to multimodal research is to keep only patients who have every required modality. Researchers may begin with a dataset containing two modalities, \(X_1\) and \(X_2\), and an outcome \(Y\). After dropping every patient missing either modality, they train \(X_1\)-only, \(X_2\)-only, and \(X_1+X_2\) models on the remaining complete cases. The difference in performance is then interpreted as the value of adding a modality.</p>
+
+<p><img src="/images/ICYM2I-1.png" width="800" /></p>
+
+<p>The issue is that the complete subset may not represent the target patient population. Let \(\Omega\) denote the full population and \(\Omega_{obs}\) the subset with all modalities observed. When test ordering depends on patient characteristics, \(\Omega_{obs} \neq \Omega\). For example, patients who receive both an ECG and a CXR may be older, more symptomatic, or more likely to have an abnormal initial test than patients who receive only an ECG. A comparison performed only on complete cases estimates the modality’s value for this selected group, not necessarily for every patient.</p>
+
+<p>This is a distribution-shift problem rather than only an imputation problem. Filling in a missing modality may help a model produce a prediction, but it does not automatically correct the fact that the observed sample came from a systematically different population.</p>
+
+<h3 id="how-can-data-be-missing">How can data be missing?</h3>
+<p>Missingness is commonly separated into three mechanisms <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>:</p>
+
+<ul>
+  <li><strong>Missing completely at random (MCAR):</strong> whether a modality is missing is independent of both observed and unobserved patient information. One example might be a truly random sensor failure.</li>
+  <li><strong>Missing at random (MAR):</strong> missingness can be explained by observed covariates, \(C\). For example, CXR availability may depend on age, recorded symptoms, diagnoses, visit type, or ECG features.</li>
+  <li><strong>Missing not at random (MNAR):</strong> missingness still depends on information that is not observed. If an undocumented clinical judgment influences whether a test is ordered, the available data may not explain the missingness process.</li>
+</ul>
+
+<p>ICYM²I operates under <strong>MAR and positivity</strong>. Positivity means that every relevant patient subgroup has at least some chance of appearing as a complete case:</p>
+
+\[P(M_1=0, M_2=0, M_Y=0 \mid C) &gt; 0\]
+
+<p>Here, \(M_j=0\) indicates that a variable is observed. Without positivity, there is no complete example from which the method can learn about a particular subgroup.</p>
+
+<h3 id="icymi-correcting-the-observed-distribution">ICYM²I: correcting the observed distribution</h3>
+<p>ICYM²I stands for <strong>In Case You Multimodal Missed It</strong>. Its goal is not to introduce a new fusion architecture or directly improve prediction. Instead, it tries to estimate predictive performance and modality informativeness under the full target distribution, even though only the complete cases contain every required input.</p>
+
+<p><img src="/images/ICYM2I-2.png" width="800" /></p>
+
+<p>The framework can be summarized in four steps:</p>
+
+<ol>
+  <li>
+    <p><strong>Estimate the probability of being a complete case.</strong> A propensity model uses observed covariates \(C\) to estimate</p>
+
+\[\pi(C)=P(M_1=0,M_2=0,M_Y=0 \mid C).\]
+  </li>
+  <li>
+    <p><strong>Reweight the complete cases.</strong> Each complete patient receives an inverse probability weight</p>
+
+\[w(C)=\frac{1}{\pi(C)}.\]
+
+    <p>A patient who had only a 5% chance of being complete receives more weight than a patient who had an 80% chance of being complete. In this way, uncommon complete cases stand in for similar patients who were excluded because a modality was missing.</p>
+  </li>
+  <li>
+    <p><strong>Correct model training and evaluation.</strong> The unimodal and multimodal models are trained with a weighted loss:</p>
+
+\[\hat{f}=\arg\min_f \sum_{i \in \Omega_{obs}} w_i\,\ell(f(X_i),Y_i).\]
+
+    <p>Weighted evaluation is also needed. Correcting only training or only evaluation would leave part of the source-to-target shift unaddressed.</p>
+  </li>
+  <li>
+    <p><strong>Correct the estimated information from each modality.</strong> ICYM²I applies the same missingness correction to Partial Information Decomposition (PID), which describes how two modalities jointly contain information about an outcome.</p>
+  </li>
+</ol>
+
+<h3 id="what-is-partial-information-decomposition">What is Partial Information Decomposition?</h3>
+<p>Model performance alone does not fully explain <em>how</em> modalities contribute. A multimodal model can underperform because of overfitting or optimization difficulty even when both modalities contain useful information. PID instead divides the total information that \(X_1\) and \(X_2\) contain about \(Y\) into four parts <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>:</p>
+
+<p><img src="/images/ICYM2I-3.png" width="800" /></p>
+
+\[I(Y;X_1,X_2)=SI(Y;X_1;X_2)+UI(Y;X_1\backslash X_2)+UI(Y;X_2\backslash X_1)+CI(Y;X_1;X_2),\]
+
+<p>where:</p>
+
+<ul>
+  <li><strong>Shared information</strong> is information about \(Y\) that is present in both modalities.</li>
+  <li><strong>Unique information</strong> is available from one modality but not the other.</li>
+  <li><strong>Complementary information</strong> appears only when the two modalities are considered together. This is also commonly described as synergy.</li>
+</ul>
+
+<p>This decomposition is valuable for data-collection decisions. If an expensive second modality contributes substantial unique or complementary information, collecting it may be worthwhile. If nearly all of its information is already shared with a cheaper first modality, its additional value may be limited.</p>
+
+<h3 id="a-synthetic-example-xor">A synthetic example: XOR</h3>
+<p>The paper first tests ICYM²I using logical operators such as AND, OR, and XOR. XOR provides a particularly clear example. Neither input bit alone predicts the output, but the pair determines it perfectly. Therefore, its information should be almost entirely complementary.</p>
+
+<p><img src="/images/ICYM2I-4.png" width="800" /></p>
+
+<p>After the authors introduce MAR missingness, naive complete-case analysis makes the first input appear to have substantial unique information. For XOR, the observed analysis estimates unique information of 0.34 and 0.07 for the two inputs and complementary information of only 0.62. ICYM²I returns the unique terms to approximately zero and recovers complementary information of 0.96, close to the oracle value of 0.99. In other words, missingness can create an illusion that one modality is independently informative even when the true signal exists only in the interaction between modalities.</p>
+
+<h3 id="do-chest-x-rays-add-information-beyond-ecgs">Do chest X-rays add information beyond ECGs?</h3>
+<p>The paper then applies ICYM²I to model-based structural heart disease (SHD) detection. Its current clinical cohort contains 98,397 adults who received an ECG and a transthoracic echocardiogram (TTE) within one year, but only 12,587 patients (12.79%) also had a recorded CXR. The TTE provides the SHD label, while ECG and CXR are the two predictive modalities. Because clinicians do not order CXRs uniformly, the patients with both predictive modalities form a selected subset.</p>
+
+<p><img src="/images/ICYM2I-5.png" width="800" /></p>
+
+<p>In the corrected analysis, the rounded AUROCs are 0.82 for ECG, 0.73 for CXR, and 0.83 for ECG+CXR. More importantly, naive PID attributes about 5% of the total information to the CXR alone, whereas ICYM²I reduces the CXR’s unique contribution to 1.8% and estimates very little complementary information. Most of the useful information is either captured by the ECG or shared between the modalities.</p>
+
+<p>This result does <strong>not</strong> mean that CXRs are clinically unnecessary. It is specific to this cohort, outcome, representations, and model-based screening task. Rather, it shows that after accounting for why CXRs are missing, their incremental information for this particular prediction problem is much smaller than a naive complete-case analysis may suggest.</p>
+
+<h3 id="limitations">Limitations</h3>
+<p>ICYM²I still has several important limitations. First, the MAR assumption cannot be verified from the observed data alone, and the method has no theoretical guarantee under MNAR. The propensity model must include the variables that meaningfully explain why a modality is missing.</p>
+
+<p>Second, positivity requires enough complete cases across the population. When a subgroup almost never has both modalities, its estimated completeness probability approaches zero and its inverse probability weight becomes very large. This produces high variance and unstable estimates.</p>
+
+<p>Lastly, the PID formulation focuses on two paired modalities. Extending the decomposition to more than two modalities remains an open problem, and the results also depend on the quality and calibration of the learned representations. The authors therefore describe the clinical application as a proof of concept rather than a method ready for deployment.</p>
+
+<h3 id="thoughts">Thoughts</h3>
+<p>This paper is compelling because it reframes missing data as not only a modeling challenge but also an evaluation challenge. In my previous post about FuseMoE, the central question was how a multimodal model can continue to make predictions when modalities are absent. ICYM²I asks a different question: before building a larger multimodal model, have we correctly estimated whether the additional modality contributes useful information at all?</p>
+
+<p>This distinction is highly relevant to computational cardiology. Whether a patient receives an echocardiogram, CXR, cardiac MRI, or genetic test is influenced by symptoms, prior findings, access to care, and clinical judgment. A complete-case dataset can therefore concentrate the most complicated or suspicious patients. If we ignore this selection process, we risk confusing clinical workflow with biological signal.</p>
+
+<p>ICYM²I does not eliminate the difficulty of missing clinical data, but it provides a useful framework for making the assumptions explicit. Before concluding that “more modalities are better,” we should ask why those modalities were collected, which patients are missing from the analysis, and whether the complete cases actually represent the population where the model will be used.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Choi, Y. S., Jeanselme, V., Elias, P., &amp; Joshi, S. (2026). <em>ICYM²I: The Illusion of Multimodal Informativeness under Missingness</em>. International Conference on Learning Representations (ICLR 2026). https://arxiv.org/abs/2505.16953 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Rubin, D. B. (1976). Inference and missing data. <em>Biometrika, 63</em>(3), 581–592. https://doi.org/10.1093/biomet/63.3.581 <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Bertschinger, N., Rauh, J., Olbrich, E., Jost, J., &amp; Ay, N. (2014). Quantifying unique information. <em>Entropy, 16</em>(4), 2161–2183. https://doi.org/10.3390/e16042161 <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Jiwoo Noh</name><email>jnoh10@jh.edu</email></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Machine Learning in Arrhythmia</title><link href="http://localhost:4000/blog/2025/ml-arrhythmia" rel="alternate" type="text/html" title="Machine Learning in Arrhythmia" /><published>2025-12-06T00:00:00+00:00</published><updated>2025-12-06T00:00:00+00:00</updated><id>http://localhost:4000/blog/2025/blog-post-2</id><content type="html" xml:base="http://localhost:4000/blog/2025/ml-arrhythmia"><![CDATA[<!-- Add this style block to hide the extra elements -->
+
+<style>
+  .page__related,
+  .page__navigation,
+  p.page__meta,
+  .page__share {  
+    display: none !important;
+  }
+</style>
+
+<p>Being in a computational cardiology lab, machine learning and arrhythmia are two of most common keywords we discuss in meetings. <strong>Machine Learning and Arrhythmia: Advances in Atrial Fibrillation Detection and Management</strong> by Yazdi et al. (2025) reviews recent advancements in the diagnosis and management of atrial fibrillation through machine learning <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<h3 id="what-we-know-and-dont-know-about-af-detection-and-management">What we know (and don’t know) about AF detection and management</h3>
+<p>Atrial fibrillation is the most common sustained cardiac arrythmia and is associated with many comorbidities such as age, heart failure, valvular disease, and more. In the US, life-time risk of AF is 1 in 3 for white individuals and 1 in 5 for black individuals. While early management of AF can reduce incidence of stroke, heart failure, and recurrence, clinical presentation of AF can be heterogenous. Some patients suffer from symptoms like dyspnea and chest pain, yet a large population are also asymptomatic. Therefore, with this inherent heterogeneity, it is challenging to predict the risk of AF.</p>
+
+<h3 id="how-can-machine-learning-help">How can machine learning help?</h3>
+<p><img src="/images/DL-Arrhythmia.png" width="600" height="600" />
+Traditional predictive scores for new-onset AF are based on clinical characteristics. For example, CHARGE-AF is a 5-year score for incident AF prediction using prominent comorbidities. Although the risk calculator has demonstrated some level of accuracy, it is not very generalizable since it was primarily developed and validated using elderly, European cohorts.</p>
+
+<p>Machine learning architectures can leverage its ability to self-define the relationship between inputs (clinical features) and their corresponding outputs (labels) after training. One prominent example includes Deep Neural Networks (DNNs), which can learn complex, hierarchical relationships in heterogenous datasets through backpropagation. These AI systems are constantly researched to become more explainable to identify the most important datapoints that drive the prediction.</p>
+
+<p>Current methodologies are shifting away from single-modality inputs toward multimodal fusion, integrating electrocardiograms (ECG), medical imaging (MRI, CT, ECHO etc.), and electronic health records (EHR). This holistic approach leverages the unique predictive value of each domain to enhance model robustness and generalizability.</p>
+
+<h3 id="current-challenges-in-machine-learning">Current challenges in machine learning</h3>
+<p>While ML has shown promise in diagnosis and management of AF, ML algorithms inherently suffer from being a black or grey box model that does not provide enough explanation behind its decision making. A lot of modern DL systems also require a large, representative diverse dataset to train and validate its predictions. It is difficult for clinical cohorts to satisfy this requirement, since there exists many legal and ethical barriers to obtain cross-institution data, such as patient data transfer policies and de-identification issues. Moreover, clinical data are real-life data derived from unique individuals and therefore inevitably contain noises.</p>
+
+<h3 id="thoughts">Thoughts</h3>
+<p>While these challenges do pose difficulties to develop accurate and useful medical AI systems, I believe they are also what also continuously push the direction of healthcare AI development to be more interpretable and generalizable.</p>
+
+<p>This trajectory of the work aligns with what I hope to do in my PhD research. By examining the multifaceted nature of cardiovascular diseases, I hope to address the “black box” challenge by identifying specific anatomical or clinical features that drive the risk. Fortunately, cardiology is a relatively well-studied field in medicine due to its prominence in our lives, and its (relative) richness in data helps greatly with the investigation. I hope to leverage this advantage in cardiology to advance the field of deep learning in cardiovascular disease prediction.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Yazdi V, Kadiyala V, Chugh SS. Machine Learning and Arrhythmia: Advances in Atrial Fibrillation Detection and Management. Curr Atheroscler Rep. 2025 Nov 28;27(1):119. doi: 10.1007/s11883-025-01366-z. PMID: 41313514; PMCID: PMC12662886. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Jiwoo Noh</name><email>jnoh10@jh.edu</email></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Mixture-of-Experts (MoE) for Medical Applications</title><link href="http://localhost:4000/blog/2025/moe-health" rel="alternate" type="text/html" title="Mixture-of-Experts (MoE) for Medical Applications" /><published>2025-10-25T00:00:00+00:00</published><updated>2025-10-25T00:00:00+00:00</updated><id>http://localhost:4000/blog/2025/blog-post-1</id><content type="html" xml:base="http://localhost:4000/blog/2025/moe-health"><![CDATA[<!-- Add this style block to hide the extra elements -->
+
+<style>
+  .page__related,
+  .page__navigation,
+  p.page__meta,
+  .page__share {  
+    display: none !important;
+  }
+</style>
+
+<p>Throwback to a month ago, I did my first Machine Learning subgroup presentation, where I explained about the Mixture-of-Experts (MoE) models and their applications in medicine.</p>
+
+<h3 id="what-is-a-moe">What is a MoE?</h3>
+<p>This blog post will explain MoE in context of Transformers. MoE is a machine learning architecture that combines multiple specialized “expert” models with a “gating network” to dynamically route inputs to the most relevant experts <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. It was first introduced in ICLR 2017 by a team in Google Brain <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. In a transformer, MoE has two main elements:</p>
+<ol>
+  <li>They have sparse MoE layers instead of dense feed-forward network (FFN) layers,</li>
+  <li>Router network determines which token is sent to which expert.</li>
+</ol>
+
+<p>See image below to understand the difference between regular versus MoE transformers <sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
+
+<p><img src="/images/MOE-1.png" width="800" height="800" /></p>
+
+<h3 id="how-does-moe-work">How does MoE work?</h3>
+<p>MoE has two main components: router network and experts. Below steps outline how these components interact to</p>
+<ol>
+  <li>Router network scores the input token against each expert and applies a softmax to produce a probability for every expert: \(h_{soft}(x)_{i} = \text{softmax}(x^T W_i)\)</li>
+  <li>Top-K experts (here, k=1) are activated.</li>
+  <li>Expert’s FFN processes the token and produces an output.</li>
+  <li>Router’s probability for that expert (e.g., 0.45) is used to weigh the expert’s output before passing it onward.</li>
+</ol>
+
+<p><img src="/images/MOE-2.png" width="400" height="400" /></p>
+
+<h3 id="why-moes-are-useful-or-not">Why MoEs are useful, or not</h3>
+<p>These MoE Transformers are great at dynamic specialization, as each expert focuses on particular patterns or inputs. We have <strong>dynamic gating</strong>, which computes each token and produces probability vector that determines how much “say” each expert gets in the final output. Throughout training, MoE models add an <strong>auxillary loss function</strong> to the regular model loss, which enforces 1) load balancing (penalizes the router if it disproportionately favors a few experts over a batch of tokens) and 2) sparsity (adds an entropy penalty to encourage the router to produce a “spiky” probability distribution). They also have improved model capacity as they are able to process high number parameters without comparable costs. Unlike normal transformers where each feed-forward network (FFN) computes all parameters, MoE router selects the \(K\) experts with the highest probabilities (the Top-K) and only those \(K\) experts are computed. The other \(N-K\) experts are not activated and consume zero computational power.</p>
+
+<p><img src="/images/MOE-3.png" width="400" height="400" /></p>
+
+<p>However, MoEs still have a few downsides, with one of them being that they may suffer from irregular and missing data. Let’s consider an example where the input data question is: “What is 1+1?”. Now, let’s assume we are missing the numerical part of the data, and all we are left is “What is ?”. Then, router still computes scores for all experts with zero-filled embeddings for numbers. This can lead to the router incorrectly sending the incomplete math equation to “verb” expert (for example) instead of “number” expert (again, for example). If many incomplete math questions (input data) arrive, then the “word” expert would get overloaded while “number” experts get underused, meaning that the final answer will be computed by the wrong experts. Overall, this can lead to lower predication accuracy.</p>
+
+<p>There have been many variations of MoE to combat its limitations towards missing data. One prominent example is FuseMoE, published in NeurIPS 2024 by Han et al. at Johns Hopkins <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>. FuseMoE argues that it can deal with “FlexiModal Data,” where “Flexi” suggests flexibility with any combination of modalities even with arbitrary missingness or irregularity.</p>
+
+<h3 id="fusemoe-router-structure">FuseMoE: Router Structure</h3>
+<p><img src="/images/MOE-4.png" width="600" height="600" /></p>
+
+<p>FuseMoE follows closely to the original MoE framework. In the image above, (a) utilizes joint experts and router. This is the structure of a typical MoE, which utilizes concatenated embedding of all modalities. It combines all theinput to selected experts as processed by the router. (c) employs disjoint experts, where each modality has separate router and dedicated experts. While disjoint experts solve the main issue of the regular MoE in that there is no misrouting, this method also does not allow for cross-modal feature learning, which can stagger the learning process for the model. (b)’s per-modality router structure explains FuseMoE’s mechanism. In FuseMoE, each modality embedding is independently assigned to a shared pool of experts. This is better than (a) since it avoids blind misrouting – each router only sees the embeddings for its modality, so it never confuses token as another modality. Each modality’s router in (a) also tailors its routing weights to the statistics of that modality’s embeddings. At the same time, (b) is also better than (c) since it preserves cross-modal sharing, which allows for shared represnetations and transfer knowledge. In essence, FuseMoE modifies its structure so that routers are specialized but experts remain shared.</p>
+
+<h3 id="fusemoe-laplace-gating-function">FuseMoE: Laplace Gating Function</h3>
+<p>FuseMoE uses Laplace gating function to pick experts based on how “close” each expert is to the input. Specifically, their routing function is: \(h_\ell(x)_i = -\|x - W_i\|_2^2\), with gate probabilities of \(G_\ell(x)_i = \frac{\exp(h_\ell(x)_i)}{\sum_{j=1}^S \exp(h_\ell(x)_j)}\).
+This gating function produces smoother gradients since the gradient is \(2(x-w)\), meaning that it is always proportional to the difference. It can also handle different scales, as the model adjusts to extreme modality values by measuring absolute values.</p>
+
+<h3 id="fusemoe-entropy-regularization-loss">FuseMoE: Entropy Regularization Loss</h3>
+<p>FuseMoE also utilizes entropy regularization loss, which is \(\mathcal{E}(x) = \frac{1}{M} \sum_{j=1}^M \mathcal{H}(\hat{p}_{m_j}(E)) - \mathcal{H}\left(\frac{1}{M} \sum_{j=1}^M \hat{p}_{m_j}(E)\right)\), where:</p>
+<ul>
+  <li>\(x\): input token’s representation,</li>
+  <li>\(M\): the number of different modality conditions</li>
+  <li>\(\hat{p}_{m_j}(E)\): vector of routing weights that router $j$ assigns to each expert $E$</li>
+  <li>\(\mathcal{H}\) : entropy function</li>
+</ul>
+
+<p>This ensures per-modality specialization and cross-modal consensus. The first term is the average entropy of each modality’s router output. If the value of first term is high, each modality’s router spreads braodly over experts. The second term is the entropy of the mixture distribution after averaging M number of modality-conditioned router outputs. If the second term is high, combined distribution is flat.</p>
+
+<h3 id="fusemoe-application-to-mimic-iv">FuseMoE: Application to MIMIC-IV</h3>
+<p>The team carried out an experiment to perform 48-hour in-hospital mortality prediction (48-IHM), length-of-stay prediction (LOS), and 25-type phenotype classification (25-PHE) using MIMIC-IV dataset.</p>
+
+<p><img src="/images/MOE-5.png" width="600" height="600" /></p>
+
+<p>From Table 4 (below), we can see that the best results, which are highlighted in bold font, largely come from FuSeMoE-based methods with various gating function.</p>
+
+<p><img src="/images/MOE-6.png" width="600" height="600" /></p>
+
+<p>The team also compares Fuse-MoE’s efficacy with increasing number of modalities. As the model is provided with ECG, in addition to Vital, Notes, and CXR, we can see that FuseMoE with Laplace gating function performs better than other models.</p>
+
+<h3 id="fusemoe-limitations-and-conclusions">FuseMoE: Limitations and Conclusions</h3>
+<p>While FuseMoE allows for per-modality specialization and cross-modal conesnsus, it has some limitations as well. First, FuseMoE’s modality combination is predefined. This means that adpating to new modalities requires architectural changes and retraining. Moreover, while per-modality encoders are pretrained, the MoE fusion layer still needs substantial in-domain data to fine-tune effectively. Therefore, small clinical cohorts risk under-trained experts and overfitting.</p>
+
+<p>Regardless, FuseMoE introduces a flexible, scalable Mixture-of-Experts layer for transformers that natively handles any combination of modalities. Specifically, per-modality routers over a shared expert pool modality learns specialized routes without losing cross-modal transfer. Laplace gating function yields smoother, bounded gradients and faster, uniform convergence guarantees for both router and expert parameters. Lastly, entropy regularizer encourages each modality’s router to explore multiple experts while driving all routers toward consensus on a small core of experts.</p>
+
+<h3 id="wrapping-up">Wrapping up…</h3>
+<p>I came across FuseMoE as I was reading methodology papers that present multimodal AI models. FuseMoE could be a very useful model when trying to build a risk prediction model for cardiovascular disease given multimodal clinical data, where missing data is especially common. However, it might be challenging to adopt FuseMoE in real clinical settings since it will be rare for a dataset to be as large as MIMIC-IV.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>IBM. (n.d.). <em>What is a mixture of experts (MoE)?</em> IBM Think. Retrieved October 25, 2025, from https://www.ibm.com/think/topics/mixture-of-experts <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Shazeer, N., Mirhoseini, A., Maziarz, K., Davis, A., Le, Q., Hinton, G., &amp; Dean, J. (2017, February 6). Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer. International Conference on Learning Representations (ICLR). Retrieved October 25, 2025, from https://openreview.net/forum?id=B1ckMDqlg <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Chawla, A. (2025, February 27). Transformer vs. Mixture of Experts in LLMs. Daily Dose of Data Science. Retrieved October 25, 2025, from https://www.dailydoseofds.com/p/transformer-vs-mixture-of-experts-in-llms/ <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Han, X., Nguyen, H., Harris, C., Ho, N., &amp; Saria, S. (2024). FuseMoE: Mixture-of-Experts Transformers for Fleximodal Fusion. Advances in Neural Information Processing Systems 37 (NeurIPS 2024). Retrieved October 25, 2025, from https://proceedings.neurips.cc/paper_files/paper/2024/hash/7d62a85ebfed2f680eb5544beae93191-Abstract-Conference.html <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Jiwoo Noh</name><email>jnoh10@jh.edu</email></author><summary type="html"><![CDATA[]]></summary></entry></feed>
